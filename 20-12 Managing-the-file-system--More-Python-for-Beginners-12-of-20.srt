@@ -1,0 +1,510 @@
+1
+00:00:01,610 --> 00:00:04,320
+>> When you start working with code,
+
+2
+00:00:04,320 --> 00:00:05,730
+at some point you're going to have to
+
+3
+00:00:05,730 --> 00:00:07,390
+start interacting
+with the file system,
+
+4
+00:00:07,390 --> 00:00:10,440
+You're going to either need
+to read files or write to
+
+5
+00:00:10,440 --> 00:00:11,970
+files and figuring out
+
+6
+00:00:11,970 --> 00:00:14,190
+what directory you're in
+and issues like that,
+
+7
+00:00:14,190 --> 00:00:16,770
+So let's take a look at some
+of the Python commands and
+
+8
+00:00:16,770 --> 00:00:20,160
+libraries we can use to work
+with the file system itself,
+
+9
+00:00:20,160 --> 00:00:22,830
+Now, in the earlier days of Python,
+
+10
+00:00:22,830 --> 00:00:24,720
+we typically used os,path,
+
+11
+00:00:24,720 --> 00:00:26,725
+and that's operating system path,
+
+12
+00:00:26,725 --> 00:00:29,360
+So we would literally call
+the operating system and say,
+
+13
+00:00:29,360 --> 00:00:30,715
+what path are we in?
+
+14
+00:00:30,715 --> 00:00:33,590
+Now, the great thing
+is, in Python 3,6,
+
+15
+00:00:33,590 --> 00:00:36,215
+they actually added a new library,
+
+16
+00:00:36,215 --> 00:00:39,805
+pathlib, which includes
+a class called path,
+
+17
+00:00:39,805 --> 00:00:42,260
+That's a cleaner way and actually
+
+18
+00:00:42,260 --> 00:00:44,690
+slightly faster way to access
+
+19
+00:00:44,690 --> 00:00:47,360
+information about things
+like what directory I'm in?
+
+20
+00:00:47,360 --> 00:00:49,590
+What files are in that
+directory and so on,
+
+21
+00:00:49,590 --> 00:00:50,975
+because it doesn't require
+
+22
+00:00:50,975 --> 00:00:53,570
+accessing and calling the
+operating system itself,
+
+23
+00:00:53,570 --> 00:00:55,580
+So python 3,6 or higher,
+
+24
+00:00:55,580 --> 00:00:58,400
+you definitely want to be
+using path and path lead,
+
+25
+00:00:58,400 --> 00:01:00,470
+But if you're looking at
+older code from someone else,
+
+26
+00:01:00,470 --> 00:01:03,170
+just be aware you might see
+something called os,path,
+
+27
+00:01:03,170 --> 00:01:05,180
+But we're going to
+focus on going forward,
+
+28
+00:01:05,180 --> 00:01:07,615
+what we want to be doing
+as we move forward,
+
+29
+00:01:07,615 --> 00:01:10,820
+So it's the path libraries,
+
+30
+00:01:10,820 --> 00:01:13,375
+So we're going to import that
+library to be able to use it,
+
+31
+00:01:13,375 --> 00:01:14,900
+and once we've done that,
+
+32
+00:01:14,900 --> 00:01:19,085
+then we can simply use cwd for
+current working directory,
+
+33
+00:01:19,085 --> 00:01:21,470
+So if you want to retrieve
+what directory I'm in right
+
+34
+00:01:21,470 --> 00:01:24,990
+now, it's just path,cwd,
+
+35
+00:01:25,370 --> 00:01:28,010
+The other thing you
+commonly want to do
+
+36
+00:01:28,010 --> 00:01:29,780
+is we want to know a full path name,
+
+37
+00:01:29,780 --> 00:01:34,875
+So the name of the directory
+and that is slash or backslash,
+
+38
+00:01:34,875 --> 00:01:36,270
+and the file name,
+
+39
+00:01:36,270 --> 00:01:37,760
+So we want to include that in
+
+40
+00:01:37,760 --> 00:01:39,890
+the full name so you can
+actually build that,
+
+41
+00:01:39,890 --> 00:01:42,680
+There's this wonderful function
+called join path which will
+
+42
+00:01:42,680 --> 00:01:44,690
+actually build you
+the correct structure
+
+43
+00:01:44,690 --> 00:01:47,290
+of a directory name and
+the file name together,
+
+44
+00:01:47,290 --> 00:01:49,310
+Another common test we do,
+
+45
+00:01:49,310 --> 00:01:53,060
+because often before we write
+to a file or read a file,
+
+46
+00:01:53,060 --> 00:01:55,520
+we want to check if the file already
+exists because we might write
+
+47
+00:01:55,520 --> 00:01:57,470
+good code where we're checking
+
+48
+00:01:57,470 --> 00:01:59,480
+to see if file exists
+before we try and read it,
+
+49
+00:01:59,480 --> 00:02:01,970
+So we don't just get error
+messages causing things to crash,
+
+50
+00:02:01,970 --> 00:02:03,500
+It's much more elegant to say,
+
+51
+00:02:03,500 --> 00:02:04,900
+hey, let's check if the file exists,
+
+52
+00:02:04,900 --> 00:02:07,420
+If it doesn't, maybe we
+return our own error message,
+
+53
+00:02:07,420 --> 00:02:11,300
+So controlled error handling
+instead of having a function fail,
+
+54
+00:02:11,300 --> 00:02:13,940
+So another great feature is
+to be able to check and see
+
+55
+00:02:13,940 --> 00:02:16,905
+if a file exists using
+the Boolean variable,
+
+56
+00:02:16,905 --> 00:02:19,710
+So few features we have,
+
+57
+00:02:19,710 --> 00:02:22,400
+and if you do that, what
+you'll see come back is
+
+58
+00:02:22,400 --> 00:02:24,560
+you would see there's your
+current working directory there,
+
+59
+00:02:24,560 --> 00:02:26,495
+You can see the full path name
+
+60
+00:02:26,495 --> 00:02:28,740
+with the directory name
+and the file name,
+
+61
+00:02:28,740 --> 00:02:30,455
+You can see in this case,
+
+62
+00:02:30,455 --> 00:02:32,730
+I haven't actually created
+a file called new file,
+
+63
+00:02:32,730 --> 00:02:34,280
+So when I asked if that file
+
+64
+00:02:34,280 --> 00:02:36,410
+exists even though I've
+created a file path for it,
+
+65
+00:02:36,410 --> 00:02:38,060
+the file itself is not there,
+
+66
+00:02:38,060 --> 00:02:40,055
+so it returns a false,
+
+67
+00:02:40,055 --> 00:02:44,675
+Now, in directories, the other
+common thing we end up doing,
+
+68
+00:02:44,675 --> 00:02:46,490
+this comes up when we're maybe doing
+
+69
+00:02:46,490 --> 00:02:48,859
+data science and
+reading a set of files,
+
+70
+00:02:48,859 --> 00:02:51,800
+or we're just moving data
+from one place to another is
+
+71
+00:02:51,800 --> 00:02:54,800
+we might need to check things
+like go into a directory,
+
+72
+00:02:54,800 --> 00:02:56,990
+get a list of the contents
+of that directory,
+
+73
+00:02:56,990 --> 00:02:58,610
+get a list of the files, etc,
+
+74
+00:02:58,610 --> 00:03:01,400
+We can keep using the path
+library for that as well,
+
+75
+00:03:01,400 --> 00:03:03,440
+We can request the parent directory,
+
+76
+00:03:03,440 --> 00:03:06,400
+We can ask, is this a
+directory or a file?
+
+77
+00:03:06,400 --> 00:03:10,515
+By using, is directory
+true-false is file true-false,
+
+78
+00:03:10,515 --> 00:03:12,320
+For child in parent,
+
+79
+00:03:12,320 --> 00:03:14,600
+it's a fantastic one for just getting
+
+80
+00:03:14,600 --> 00:03:17,375
+a list of the contents of
+a particular directory,
+
+81
+00:03:17,375 --> 00:03:18,830
+So if I was to run that,
+
+82
+00:03:18,830 --> 00:03:22,910
+I might see something like if I
+pass it the working directory,
+
+83
+00:03:22,910 --> 00:03:25,040
+Well, the working directory
+is a directory name,
+
+84
+00:03:25,040 --> 00:03:26,945
+So is it a directory true?
+
+85
+00:03:26,945 --> 00:03:28,235
+Is it a file false?
+
+86
+00:03:28,235 --> 00:03:30,440
+What's contents of the
+current working directory?
+
+87
+00:03:30,440 --> 00:03:35,160
+It might be something like
+following a few code examples here,
+
+88
+00:03:36,050 --> 00:03:39,470
+Now, files is the other one
+we're going to be working with,
+
+89
+00:03:39,470 --> 00:03:40,880
+We're going to talk about
+reading and writing
+
+90
+00:03:40,880 --> 00:03:42,170
+to files in the next module,
+
+91
+00:03:42,170 --> 00:03:43,760
+So I'm just talking
+about how do I find out
+
+92
+00:03:43,760 --> 00:03:46,140
+information about what
+files I have first,
+
+93
+00:03:46,140 --> 00:03:47,630
+So don't worry, we're going
+to get to reading and
+
+94
+00:03:47,630 --> 00:03:49,640
+writing to files in the next module,
+
+95
+00:03:49,640 --> 00:03:52,175
+But just to find out
+information about your files,
+
+96
+00:03:52,175 --> 00:03:53,675
+Some of the things we can see
+
+97
+00:03:53,675 --> 00:03:55,280
+once you know that working directory,
+
+98
+00:03:55,280 --> 00:03:57,920
+you can do things like
+retrieve the file name,
+
+99
+00:03:57,920 --> 00:03:59,960
+retrieve the file suffix,
+
+100
+00:03:59,960 --> 00:04:01,670
+retrieve the folder name,
+
+101
+00:04:01,670 --> 00:04:04,085
+or even information
+like what size in it
+
+102
+00:04:04,085 --> 00:04:06,500
+or when was it last-modified?
+
+103
+00:04:06,500 --> 00:04:09,080
+So you might determine
+if maybe there was
+
+104
+00:04:09,080 --> 00:04:12,470
+a program that was supposed to
+modify the file in the background,
+
+105
+00:04:12,470 --> 00:04:16,270
+has that program completed before
+I go reading it and so on,
+
+106
+00:04:16,270 --> 00:04:17,330
+So if you were to run this code,
+
+107
+00:04:17,330 --> 00:04:18,410
+you'd see something like, Oh,
+
+108
+00:04:18,410 --> 00:04:22,860
+the file is demo,text and
+the extension is,txt,
+
+109
+00:04:22,860 --> 00:04:27,085
+It's in the folder file system and
+its size is say, 11 kilobytes,
+
+110
+00:04:27,085 --> 00:04:29,780
+So those are some of the
+neat things we can do,
+
+111
+00:04:29,780 --> 00:04:32,790
+Let's go try it out
+in some actual code,
+

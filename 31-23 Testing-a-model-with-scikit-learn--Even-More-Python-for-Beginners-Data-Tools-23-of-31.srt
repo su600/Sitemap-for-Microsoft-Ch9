@@ -1,0 +1,294 @@
+1
+00:00:01,330 --> 00:00:04,570
+>> So Christopher just
+walked you through how to
+
+2
+00:00:04,570 --> 00:00:06,940
+actually train the model and yes,
+
+3
+00:00:06,940 --> 00:00:08,395
+that can feel a bit anticlimactic,
+
+4
+00:00:08,395 --> 00:00:11,230
+I was chatting with a data
+scientist who told me that
+
+5
+00:00:11,230 --> 00:00:13,090
+80 percent of your
+time is spent actually
+
+6
+00:00:13,090 --> 00:00:14,860
+preparing the data
+to do the training,
+
+7
+00:00:14,860 --> 00:00:16,270
+and only 20 percent of your time is
+
+8
+00:00:16,270 --> 00:00:18,020
+actually spent training the model,
+
+9
+00:00:18,020 --> 00:00:19,450
+When it gets down to the code,
+
+10
+00:00:19,450 --> 00:00:23,440
+it's really one line of code that
+you execute to train your model,
+
+11
+00:00:23,440 --> 00:00:25,510
+You spend most of your time
+doing that preparation,
+
+12
+00:00:25,510 --> 00:00:27,560
+getting the data ready for training,
+
+13
+00:00:27,560 --> 00:00:30,040
+It's interesting, You may notice
+over the next couple of modules,
+
+14
+00:00:30,040 --> 00:00:32,230
+same thing really is just one line of
+
+15
+00:00:32,230 --> 00:00:35,095
+code does all the magic for us,
+
+16
+00:00:35,095 --> 00:00:36,580
+It's getting the data
+
+17
+00:00:36,580 --> 00:00:38,705
+ready that's going to take
+you most of your time,
+
+18
+00:00:38,705 --> 00:00:40,840
+But, we have got a model trained
+
+19
+00:00:40,840 --> 00:00:43,155
+based on the code that
+you saw with Christopher,
+
+20
+00:00:43,155 --> 00:00:44,630
+So now, let's take a look at how we
+
+21
+00:00:44,630 --> 00:00:47,020
+actually test for model
+once we trained it,
+
+22
+00:00:47,020 --> 00:00:49,280
+So we know it's actually
+somewhat accurate and then,
+
+23
+00:00:49,280 --> 00:00:52,765
+we can rely on that model and make
+decisions based on that model,
+
+24
+00:00:52,765 --> 00:00:55,125
+So how do we test a model?
+
+25
+00:00:55,125 --> 00:00:57,455
+When we are looking at
+Christopher's content,
+
+26
+00:00:57,455 --> 00:01:00,395
+you saw that we had split up
+our data into four parts,
+
+27
+00:01:00,395 --> 00:01:03,385
+We had X_train and X_test,
+
+28
+00:01:03,385 --> 00:01:08,060
+X_train is the data we use to train
+our model along with Y_ train,
+
+29
+00:01:08,060 --> 00:01:10,165
+Y_train being the values
+we're predicting,
+
+30
+00:01:10,165 --> 00:01:12,075
+X_train being our features,
+
+31
+00:01:12,075 --> 00:01:14,335
+Then, we also had test data,
+
+32
+00:01:14,335 --> 00:01:18,275
+X_test and Y_test, and that was
+data we had put aside for testing,
+
+33
+00:01:18,275 --> 00:01:22,210
+That's what we're going to use to
+check how accurate our model is,
+
+34
+00:01:22,210 --> 00:01:24,470
+So what we can do is take
+
+35
+00:01:24,470 --> 00:01:26,210
+that X_test data we put aside
+
+36
+00:01:26,210 --> 00:01:28,690
+and we're going to use
+that to test our model,
+
+37
+00:01:28,690 --> 00:01:31,850
+So we use predict is
+
+38
+00:01:31,850 --> 00:01:35,615
+the method that we typically use
+on the different models to say,
+
+39
+00:01:35,615 --> 00:01:38,840
+here are some values that
+we would like to test with,
+
+40
+00:01:38,840 --> 00:01:40,310
+please try and predict values for
+
+41
+00:01:40,310 --> 00:01:42,645
+those different values
+in our test data,
+
+42
+00:01:42,645 --> 00:01:45,470
+So we take the data in X_test and we
+
+43
+00:01:45,470 --> 00:01:48,500
+pass that in using our regressor,
+
+44
+00:01:48,500 --> 00:01:52,255
+which is the model object we had
+created, and we call predict,
+
+45
+00:01:52,255 --> 00:01:54,695
+We pass in the test data
+and it will pass back
+
+46
+00:01:54,695 --> 00:01:57,620
+a prediction for each of
+the rows of test data,
+
+47
+00:01:57,620 --> 00:02:00,185
+We can put that into a data frame,
+
+48
+00:02:00,185 --> 00:02:03,170
+I'm calling it Y predicted because
+that's sort of nice consistent,
+
+49
+00:02:03,170 --> 00:02:07,090
+We have Y_test for the actual
+values for our test data,
+
+50
+00:02:07,090 --> 00:02:08,360
+Now, we have Y prediction
+
+51
+00:02:08,360 --> 00:02:10,535
+containing the predicted
+values for our test data,
+
+52
+00:02:10,535 --> 00:02:13,100
+So now, once we're finished that,
+
+53
+00:02:13,100 --> 00:02:17,285
+we'll be able to compare the
+results we have in Y_test,
+
+54
+00:02:17,285 --> 00:02:20,900
+which is the actual values that
+happened for each record to
+
+55
+00:02:20,900 --> 00:02:22,130
+the predicted values or
+
+56
+00:02:22,130 --> 00:02:25,870
+model data for each of the
+rows of our test data,
+
+57
+00:02:25,870 --> 00:02:28,850
+By comparing here, we
+know the first row,
+
+58
+00:02:28,850 --> 00:02:30,610
+the first flight was
+five minutes early,
+
+59
+00:02:30,610 --> 00:02:33,445
+Our model predicted it would be
+just over three minutes late,
+
+60
+00:02:33,445 --> 00:02:35,900
+The second row, it predicted
+would be 20 minutes late,
+
+61
+00:02:35,900 --> 00:02:39,590
+Our model predicted it would be
+about six minutes late and so on,
+
+62
+00:02:39,590 --> 00:02:41,870
+So now, we get a sense of whether
+
+63
+00:02:41,870 --> 00:02:44,290
+our models are doing a good
+job making those predictions,
+
+64
+00:02:44,290 --> 00:02:47,550
+Now, let's take a look
+this in some actual code,
+

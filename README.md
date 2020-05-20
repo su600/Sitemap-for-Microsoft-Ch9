@@ -4,6 +4,6 @@
 To download 
 
 1. Get Sitemap.xml (or html) file from https://www.xml-sitemaps.com/
-2. Use download_list.py to get download links of videos and subtitles
-3. Save links to .csv/.txt/.xlsx or clipboard
-4. IDM start batch download
+2. Use `sitemap_process.py` to get download links of videos and subtitles
+3. Save video links to clipboard, IDM will catch all clipboard links and popup to make batch download
+4. All links of subtitles(.vtt) will convert to .srt and renamed, then download inside this program.

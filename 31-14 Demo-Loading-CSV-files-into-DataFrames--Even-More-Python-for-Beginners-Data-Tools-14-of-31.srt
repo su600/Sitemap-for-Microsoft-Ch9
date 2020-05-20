@@ -1,0 +1,655 @@
+1
+00:00:00,000 --> 00:00:02,520
+>> So we were just
+talking about how we can
+
+2
+00:00:02,520 --> 00:00:05,235
+use Python to work with
+data files like CSV files,
+
+3
+00:00:05,235 --> 00:00:07,230
+Let's try it from an actual notebook,
+
+4
+00:00:07,230 --> 00:00:09,135
+So I have here a
+notebook in front of me,
+
+5
+00:00:09,135 --> 00:00:12,285
+and because I want to read the
+data into a pandas DataFrame,
+
+6
+00:00:12,285 --> 00:00:14,040
+because when we're
+working with Python,
+
+7
+00:00:14,040 --> 00:00:16,290
+DataFrames are very
+useful for data science,
+
+8
+00:00:16,290 --> 00:00:19,395
+I'm going to need to import
+that pandas library again,
+
+9
+00:00:19,395 --> 00:00:21,720
+You can get used to that
+line of code, I'm thinking,
+
+10
+00:00:21,720 --> 00:00:25,335
+Let's say I have a nice CSV file
+containing airport information,
+
+11
+00:00:25,335 --> 00:00:28,290
+write the airport's
+name, city, and country,
+
+12
+00:00:28,290 --> 00:00:34,120
+You can actually see that actual
+row is in my CSV file itself,
+
+13
+00:00:34,120 --> 00:00:35,555
+as long with the names,
+
+14
+00:00:35,555 --> 00:00:38,255
+cities and country for a
+number of different airports,
+
+15
+00:00:38,255 --> 00:00:41,135
+So I can simply use
+the Read CSV command
+
+16
+00:00:41,135 --> 00:00:43,445
+to read that data into a DataFrame,
+
+17
+00:00:43,445 --> 00:00:45,725
+and then display the
+contents of that DataFrame,
+
+18
+00:00:45,725 --> 00:00:47,360
+So sure enough, you can see that
+
+19
+00:00:47,360 --> 00:00:50,080
+the column names were read
+successfully from the file,
+
+20
+00:00:50,080 --> 00:00:52,250
+You can see that index values
+
+21
+00:00:52,250 --> 00:00:54,380
+were created as Christopher
+was explaining,
+
+22
+00:00:54,380 --> 00:00:57,390
+Panda DataFrames, you always
+have an index for each row,
+
+23
+00:00:57,390 --> 00:00:59,270
+In this case, because
+it was none provided,
+
+24
+00:00:59,270 --> 00:01:00,820
+it generated them for me,
+
+25
+00:01:00,820 --> 00:01:02,715
+So everything looks great,
+
+26
+00:01:02,715 --> 00:01:04,640
+But when we are writing Python code,
+
+27
+00:01:04,640 --> 00:01:06,920
+we have to make sure that
+that code can handle
+
+28
+00:01:06,920 --> 00:01:10,755
+different variations in the
+data file that we're loading,
+
+29
+00:01:10,755 --> 00:01:13,535
+For example, I might
+have a record here,
+
+30
+00:01:13,535 --> 00:01:17,130
+wherever row for Heathrow London
+has an extra comma in it,
+
+31
+00:01:17,130 --> 00:01:19,850
+and that extra comma is going
+to mess up my code because
+
+32
+00:01:19,850 --> 00:01:23,020
+it now thinks there's four
+values in that row is a three,
+
+33
+00:01:23,020 --> 00:01:26,915
+So by default, if I just
+try to read that file,
+
+34
+00:01:26,915 --> 00:01:28,640
+it's actually going to crash,
+
+35
+00:01:28,640 --> 00:01:31,985
+and it won't put any data
+at all inside my Dataframe,
+
+36
+00:01:31,985 --> 00:01:34,270
+Well, I have a couple
+of options here,
+
+37
+00:01:34,270 --> 00:01:35,870
+I can now go digging
+through that file,
+
+38
+00:01:35,870 --> 00:01:37,670
+try to figure out
+where is the one row
+
+39
+00:01:37,670 --> 00:01:39,510
+of that's causing the
+error and try to fix it,
+
+40
+00:01:39,510 --> 00:01:41,390
+Yes, there will be some
+hints in the error message
+
+41
+00:01:41,390 --> 00:01:43,745
+to help you find which
+row has the problem,
+
+42
+00:01:43,745 --> 00:01:46,355
+But one of the neat things
+about data science is
+
+43
+00:01:46,355 --> 00:01:49,190
+sometimes it's okay if
+we've got a million rows,
+
+44
+00:01:49,190 --> 00:01:50,750
+maybe we can leave 12 of them out,
+
+45
+00:01:50,750 --> 00:01:53,070
+So maybe we just want
+to skip the bad rows,
+
+46
+00:01:53,070 --> 00:01:54,700
+So in that case,
+
+47
+00:01:54,700 --> 00:01:56,860
+we can use Python
+supports that as well,
+
+48
+00:01:56,860 --> 00:02:01,015
+So what we can do, is we can specify
+error bad lines equals false,
+
+49
+00:02:01,015 --> 00:02:04,615
+That simply means if you meet a
+row that you can't interpret,
+
+50
+00:02:04,615 --> 00:02:06,205
+skip that row to continue,
+
+51
+00:02:06,205 --> 00:02:07,690
+So if I run this one,
+
+52
+00:02:07,690 --> 00:02:09,840
+you'll see it successfully
+loads the records,
+
+53
+00:02:09,840 --> 00:02:13,495
+and that record from London for
+United Kingdom was simply skipped,
+
+54
+00:02:13,495 --> 00:02:15,665
+So that record was not loaded,
+
+55
+00:02:15,665 --> 00:02:19,180
+The other common situation
+you'll encounter when
+
+56
+00:02:19,180 --> 00:02:22,815
+reading data files with
+your Python code is,
+
+57
+00:02:22,815 --> 00:02:24,490
+the file may not contain
+
+58
+00:02:24,490 --> 00:02:26,560
+a row that tells you what
+the column headers are,
+
+59
+00:02:26,560 --> 00:02:29,185
+So here, I have some data,
+
+60
+00:02:29,185 --> 00:02:32,830
+but there's no row telling me
+what the column name should be,
+
+61
+00:02:32,830 --> 00:02:35,610
+By default, if you pass this in,
+
+62
+00:02:35,610 --> 00:02:38,195
+basically Python and the pandas
+
+63
+00:02:38,195 --> 00:02:39,440
+are going to get a little confused,
+
+64
+00:02:39,440 --> 00:02:41,180
+because they assume you are
+
+65
+00:02:41,180 --> 00:02:43,670
+passing in values for
+the column headers,
+
+66
+00:02:43,670 --> 00:02:45,245
+So it reads the first row of data,
+
+67
+00:02:45,245 --> 00:02:46,885
+and thinks those are
+the column headers,
+
+68
+00:02:46,885 --> 00:02:49,980
+So suddenly, I have a column
+header called Seattle-Tacoma,
+
+69
+00:02:49,980 --> 00:02:52,095
+and Seattle in USA,
+
+70
+00:02:52,095 --> 00:02:54,420
+So I need to make sure I
+have a way of saying, "No,
+
+71
+00:02:54,420 --> 00:02:58,540
+the first row in the file is
+actually data, it's not headers,
+
+72
+00:02:58,540 --> 00:03:02,990
+"That's why we have the option of
+specifying header equals none,
+
+73
+00:03:02,990 --> 00:03:07,475
+So if I specify header equal
+none when I load the file,
+
+74
+00:03:07,475 --> 00:03:09,680
+that's a way of saying
+there's no header row,
+
+75
+00:03:09,680 --> 00:03:13,895
+and I simply want you to assign
+values to those column headers,
+
+76
+00:03:13,895 --> 00:03:15,800
+If I don't tell then
+what values to assign,
+
+77
+00:03:15,800 --> 00:03:17,240
+it'll just give them a number value,
+
+78
+00:03:17,240 --> 00:03:19,855
+column 0, column 1, column 2,
+
+79
+00:03:19,855 --> 00:03:22,280
+Now you might have appreciated when
+
+80
+00:03:22,280 --> 00:03:24,860
+crystal was doing some queries
+against the Dataframe,
+
+81
+00:03:24,860 --> 00:03:26,450
+that sometimes it's nice to be
+
+82
+00:03:26,450 --> 00:03:27,890
+able to specify the columns by name,
+
+83
+00:03:27,890 --> 00:03:30,950
+It's easier for me to remember
+that city contains the city,
+
+84
+00:03:30,950 --> 00:03:34,320
+rather than column
+index 1 is the city,
+
+85
+00:03:35,090 --> 00:03:39,020
+Even if the header values
+aren't specified in the file,
+
+86
+00:03:39,020 --> 00:03:41,855
+you can specify it by
+using the names parameter,
+
+87
+00:03:41,855 --> 00:03:44,075
+what column names you
+would like to use,
+
+88
+00:03:44,075 --> 00:03:49,550
+So if I run this, you'll see
+it actually successfully said,
+
+89
+00:03:49,550 --> 00:03:50,780
+"Oh, you don't have a header row,"
+
+90
+00:03:50,780 --> 00:03:52,955
+So here, specify a value name,
+
+91
+00:03:52,955 --> 00:03:56,250
+city, and country for
+my three columns,
+
+92
+00:03:56,640 --> 00:04:00,550
+The other scenario you're most
+likely to run into when working
+
+93
+00:04:00,550 --> 00:04:03,985
+with CSV files or Datafiles in
+general, is a missing value,
+
+94
+00:04:03,985 --> 00:04:06,160
+In this case, I have a data file,
+
+95
+00:04:06,160 --> 00:04:07,555
+For one of my records,
+
+96
+00:04:07,555 --> 00:04:08,920
+shuffle in the Netherlands,
+
+97
+00:04:08,920 --> 00:04:10,675
+there's no city specified,
+
+98
+00:04:10,675 --> 00:04:12,940
+You just see comma, comma,
+
+99
+00:04:12,940 --> 00:04:15,385
+Now if you read that,
+
+100
+00:04:15,385 --> 00:04:19,200
+the way Python pandas will
+display a missing value,
+
+101
+00:04:19,200 --> 00:04:21,150
+is it displays it as NaN,
+
+102
+00:04:21,150 --> 00:04:22,965
+so not a number, if you will,
+
+103
+00:04:22,965 --> 00:04:25,345
+So that indicates that
+there was no value
+
+104
+00:04:25,345 --> 00:04:29,200
+found for that particular
+value inside the record,
+
+105
+00:04:29,200 --> 00:04:30,930
+So you'll see that as well,
+
+106
+00:04:30,930 --> 00:04:34,900
+Now sometimes when you start really
+doing a lot of data science,
+
+107
+00:04:34,900 --> 00:04:36,940
+and you do a lot of cleaning of data,
+
+108
+00:04:36,940 --> 00:04:39,510
+you'll see that when you look
+at data science courses,
+
+109
+00:04:39,510 --> 00:04:41,210
+once you finish cleaning the data,
+
+110
+00:04:41,210 --> 00:04:42,500
+you might decide, "Hey, now that
+
+111
+00:04:42,500 --> 00:04:44,195
+the state is all
+tidied up and cleaned,
+
+112
+00:04:44,195 --> 00:04:45,970
+maybe I'd like to save a copy of it,
+
+113
+00:04:45,970 --> 00:04:47,360
+so the next time I'm working with it,
+
+114
+00:04:47,360 --> 00:04:49,810
+I don't have to do as much
+cleansing and rework,"
+
+115
+00:04:49,810 --> 00:04:53,030
+So one of the other neat
+things we can do with pandas,
+
+116
+00:04:53,030 --> 00:04:54,410
+is we can actually write
+
+117
+00:04:54,410 --> 00:04:57,455
+the contents back out
+to a CSV file as well,
+
+118
+00:04:57,455 --> 00:05:00,905
+So if I have data in
+a DataFrame already,
+
+119
+00:05:00,905 --> 00:05:02,670
+then I can simply say, hey,
+
+120
+00:05:02,670 --> 00:05:04,105
+let's use to CSV,
+
+121
+00:05:04,105 --> 00:05:07,145
+and let's write that
+output to a data file,
+
+122
+00:05:07,145 --> 00:05:09,380
+Now, one of the things
+that's a little
+
+123
+00:05:09,380 --> 00:05:11,210
+interesting if I was
+to open that file up,
+
+124
+00:05:11,210 --> 00:05:12,605
+and I'll show it to you in a minute,
+
+125
+00:05:12,605 --> 00:05:15,350
+is the index values will
+be written in as well,
+
+126
+00:05:15,350 --> 00:05:17,660
+So if I don't want the index value,
+
+127
+00:05:17,660 --> 00:05:18,890
+that zero, one, two, three,
+
+128
+00:05:18,890 --> 00:05:21,335
+four to appear in a CSV file,
+
+129
+00:05:21,335 --> 00:05:24,270
+then I want to specify
+when I write the file,
+
+130
+00:05:24,270 --> 00:05:25,935
+that I want index equals false,
+
+131
+00:05:25,935 --> 00:05:29,545
+That's a way of saying please do
+not include the index values,
+
+132
+00:05:29,545 --> 00:05:32,180
+So let's go take a look at the
+actual data files created,
+
+133
+00:05:32,180 --> 00:05:35,000
+so you can see the difference
+between using index equals false,
+
+134
+00:05:35,000 --> 00:05:37,265
+or not specifying index equals false,
+
+135
+00:05:37,265 --> 00:05:38,840
+So here you can see,
+
+136
+00:05:38,840 --> 00:05:41,900
+here is the file I
+created by default,
+
+137
+00:05:41,900 --> 00:05:45,080
+You can see it added the index
+values from the Dataframe,
+
+138
+00:05:45,080 --> 00:05:48,530
+and you can see when I did
+specify index equals false,
+
+139
+00:05:48,530 --> 00:05:51,940
+that it simply added the row
+values itself without an index,
+
+140
+00:05:51,940 --> 00:05:54,110
+So there you have it, You now have
+
+141
+00:05:54,110 --> 00:05:56,000
+the ability to use your Python Code,
+
+142
+00:05:56,000 --> 00:06:01,170
+to move data to and from CSV
+files, and pandas DataFrames,
+

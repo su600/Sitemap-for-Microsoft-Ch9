@@ -1,0 +1,401 @@
+1
+00:00:00,000 --> 00:00:03,485
+>> So we've trained our model
+and we've tested our model,
+
+2
+00:00:03,485 --> 00:00:07,800
+We passed in the data in x test
+to predict a set of values,
+
+3
+00:00:07,800 --> 00:00:09,720
+which is now stored in y predict,
+
+4
+00:00:09,720 --> 00:00:14,040
+and then we've compared those
+values to what we had in y test,
+
+5
+00:00:14,040 --> 00:00:16,440
+which were the actual
+values for our test data,
+
+6
+00:00:16,440 --> 00:00:19,270
+But so far we were just
+comparing those row by row,
+
+7
+00:00:19,270 --> 00:00:21,440
+That's very hard when you
+try to get a sense of
+
+8
+00:00:21,440 --> 00:00:23,500
+the overall accuracy of your model,
+
+9
+00:00:23,500 --> 00:00:26,615
+So what we want to be able to
+do is do some calculations
+
+10
+00:00:26,615 --> 00:00:30,730
+to return to us a sense of
+overall accuracy of the model,
+
+11
+00:00:30,730 --> 00:00:33,000
+So if we take a look
+at the code here,
+
+12
+00:00:33,000 --> 00:00:36,590
+I'm importing a new library
+
+13
+00:00:36,590 --> 00:00:38,810
+called Scikit-learn, which
+we're going to be using here,
+
+14
+00:00:38,810 --> 00:00:40,850
+So we're going to
+start by just training
+
+15
+00:00:40,850 --> 00:00:41,910
+and testing our model again,
+
+16
+00:00:41,910 --> 00:00:45,980
+This is exact same code we've
+done in the previous lessons,
+
+17
+00:00:45,980 --> 00:00:47,360
+So don't worry about that code,
+
+18
+00:00:47,360 --> 00:00:49,605
+You'll see it's exactly the
+same code you run before,
+
+19
+00:00:49,605 --> 00:00:51,395
+still doing linear regression,
+
+20
+00:00:51,395 --> 00:00:53,600
+training our model, and then passing
+
+21
+00:00:53,600 --> 00:00:56,135
+in some test data to get
+some predicted results,
+
+22
+00:00:56,135 --> 00:00:58,280
+So what we're going to
+do differently now,
+
+23
+00:00:58,280 --> 00:01:01,465
+is we'll use some calculations
+to determine the accuracy,
+
+24
+00:01:01,465 --> 00:01:03,820
+One of the many different
+ways to measure
+
+25
+00:01:03,820 --> 00:01:06,505
+accuracy is to look at
+the Mean Squared Error,
+
+26
+00:01:06,505 --> 00:01:08,950
+This is calculated
+by doing the mean of
+
+27
+00:01:08,950 --> 00:01:12,140
+actuals minus predicted
+values squared,
+
+28
+00:01:12,140 --> 00:01:14,190
+You could write a Loop
+that would do that
+
+29
+00:01:14,190 --> 00:01:15,980
+using Straight Python Code,
+
+30
+00:01:15,980 --> 00:01:17,910
+You've learned how to do
+that with the learning,
+
+31
+00:01:17,910 --> 00:01:19,480
+had to do Loop Logic when you're in
+
+32
+00:01:19,480 --> 00:01:21,835
+the introduction to programming
+courses with the Python,
+
+33
+00:01:21,835 --> 00:01:24,910
+But, if you actually go to
+the Scikit-learn library,
+
+34
+00:01:24,910 --> 00:01:28,060
+you'll discover it contains a
+number of different methods to
+
+35
+00:01:28,060 --> 00:01:29,710
+help you calculate metrics which
+
+36
+00:01:29,710 --> 00:01:31,495
+are great for evaluating your model,
+
+37
+00:01:31,495 --> 00:01:33,235
+Most of them are designed for this,
+
+38
+00:01:33,235 --> 00:01:34,890
+So what I can simply do,
+
+39
+00:01:34,890 --> 00:01:36,305
+is I can say, "Hey,
+
+40
+00:01:36,305 --> 00:01:37,900
+let's import from scikit-learn
+
+41
+00:01:37,900 --> 00:01:40,470
+the metrics and just
+calculate Mean Squared Error,
+
+42
+00:01:40,470 --> 00:01:44,025
+pass it the actual results
+for your test data,
+
+43
+00:01:44,025 --> 00:01:46,310
+the predicted results
+for your test data,
+
+44
+00:01:46,310 --> 00:01:48,325
+and it returns the
+mean squared error,"
+
+45
+00:01:48,325 --> 00:01:51,395
+Just as a general guideline
+for this particular metric,
+
+46
+00:01:51,395 --> 00:01:53,285
+a lower value is good,
+
+47
+00:01:53,285 --> 00:01:55,460
+Another common metric you
+
+48
+00:01:55,460 --> 00:01:57,125
+might measure as the
+Root Mean Squared Error,
+
+49
+00:01:57,125 --> 00:02:00,140
+which is literally the square
+root of Mean Squared Error,
+
+50
+00:02:00,140 --> 00:02:02,975
+But scikit-learn doesn't
+have a method for this,
+
+51
+00:02:02,975 --> 00:02:05,060
+That's okay though because there's
+
+52
+00:02:05,060 --> 00:02:07,580
+another library we
+can use called NumPy,
+
+53
+00:02:07,580 --> 00:02:10,280
+NumPy has a number of
+
+54
+00:02:10,280 --> 00:02:12,710
+different functions you can use
+for mathematical calculations,
+
+55
+00:02:12,710 --> 00:02:15,085
+including one which
+calculates square root,
+
+56
+00:02:15,085 --> 00:02:19,265
+So if we just calculate the square
+root of the Mean Squared Error,
+
+57
+00:02:19,265 --> 00:02:22,030
+then we get Root Mean Squared Error,
+
+58
+00:02:22,030 --> 00:02:25,310
+So NumPy is another useful library
+
+59
+00:02:25,310 --> 00:02:27,065
+that we use when we're trying to
+
+60
+00:02:27,065 --> 00:02:29,630
+get these calculations
+to measure our averages
+
+61
+00:02:29,630 --> 00:02:32,320
+and our totals to get a
+sense of overall accuracy,
+
+62
+00:02:32,320 --> 00:02:34,535
+I'll just throw out a couple
+of other examples here,
+
+63
+00:02:34,535 --> 00:02:36,875
+Different types of
+models are going to have
+
+64
+00:02:36,875 --> 00:02:39,860
+different metrics that we
+look at to measure accuracy,
+
+65
+00:02:39,860 --> 00:02:42,410
+So when you look at
+data science courses,
+
+66
+00:02:42,410 --> 00:02:44,120
+depending on the type of
+model you're learning,
+
+67
+00:02:44,120 --> 00:02:45,425
+you're going to see
+different metrics,
+
+68
+00:02:45,425 --> 00:02:47,640
+But the key here being
+Scikit-learn and
+
+69
+00:02:47,640 --> 00:02:49,925
+NumPy will often have the
+methods to help you do it,
+
+70
+00:02:49,925 --> 00:02:51,880
+So just a couple of
+other examples here,
+
+71
+00:02:51,880 --> 00:02:54,060
+we've got the Mean Absolute Error,
+
+72
+00:02:54,060 --> 00:02:55,970
+It's the mean of
+
+73
+00:02:55,970 --> 00:02:59,570
+the absolute value of the
+actuals minus predicted values,
+
+74
+00:02:59,570 --> 00:03:02,090
+The difference being it's a
+little less sensitive if you
+
+75
+00:03:02,090 --> 00:03:04,430
+have some odd data
+in the middle of it,
+
+76
+00:03:04,430 --> 00:03:05,810
+what we call outliers,
+
+77
+00:03:05,810 --> 00:03:07,850
+Lower numbers are better,
+
+78
+00:03:07,850 --> 00:03:10,850
+Another common one is the R-squared,
+
+79
+00:03:10,850 --> 00:03:13,100
+In this one, generally speaking,
+
+80
+00:03:13,100 --> 00:03:16,025
+the higher your R-squared,
+the better the model,
+
+81
+00:03:16,025 --> 00:03:18,050
+So I'm not going to get
+
+82
+00:03:18,050 --> 00:03:20,570
+into what all these numbers
+mean and represent,
+
+83
+00:03:20,570 --> 00:03:23,060
+But the key takeaway
+here is when you're
+
+84
+00:03:23,060 --> 00:03:25,564
+training model to
+measure the accuracy,
+
+85
+00:03:25,564 --> 00:03:27,335
+different models will
+have different metrics,
+
+86
+00:03:27,335 --> 00:03:31,230
+Scikit-learn and NumPy are
+going to help you out a lot,
+

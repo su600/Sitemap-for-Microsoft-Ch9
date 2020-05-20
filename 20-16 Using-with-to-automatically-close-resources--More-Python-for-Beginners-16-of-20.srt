@@ -1,0 +1,260 @@
+1
+00:00:01,310 --> 00:00:06,180
+>> So now let's talk about how
+we can clean up with With,
+
+2
+00:00:06,180 --> 00:00:08,085
+No, that is not a typing mistake,
+
+3
+00:00:08,085 --> 00:00:10,020
+I'm actually going to talk
+about how you clean things
+
+4
+00:00:10,020 --> 00:00:12,570
+up with the command With,
+
+5
+00:00:12,570 --> 00:00:15,060
+When we work with things like files,
+
+6
+00:00:15,060 --> 00:00:17,580
+so we can come up with
+other objects too,
+
+7
+00:00:17,580 --> 00:00:18,690
+you getting this sort of habit,
+
+8
+00:00:18,690 --> 00:00:19,830
+there's a basic pattern,
+
+9
+00:00:19,830 --> 00:00:21,600
+You open the file stream,
+
+10
+00:00:21,600 --> 00:00:22,890
+you write to the file stream,
+
+11
+00:00:22,890 --> 00:00:24,360
+you close the file stream,
+
+12
+00:00:24,360 --> 00:00:26,160
+and then you might see that
+with other objects as well,
+
+13
+00:00:26,160 --> 00:00:28,260
+maybe something like a
+database connection,
+
+14
+00:00:28,260 --> 00:00:30,770
+It's really, really important when
+
+15
+00:00:30,770 --> 00:00:33,220
+you're done working with an
+object that you close it,
+
+16
+00:00:33,220 --> 00:00:34,370
+because if you don't,
+
+17
+00:00:34,370 --> 00:00:35,900
+the next time you run the code,
+
+18
+00:00:35,900 --> 00:00:37,490
+you tend to get error
+messages when you
+
+19
+00:00:37,490 --> 00:00:39,620
+try to open something
+that's already opened,
+
+20
+00:00:39,620 --> 00:00:41,390
+So as a result,
+
+21
+00:00:41,390 --> 00:00:44,420
+you end up always writing your
+code or you should be writing
+
+22
+00:00:44,420 --> 00:00:47,660
+your code using a nice try
+and finally to say, hey,
+
+23
+00:00:47,660 --> 00:00:50,220
+try to open the file and write to it,
+
+24
+00:00:50,220 --> 00:00:51,740
+but if something goes wrong,
+
+25
+00:00:51,740 --> 00:00:55,100
+like I don't have the
+permissions or the file,
+
+26
+00:00:55,100 --> 00:00:57,290
+if I'm trying to read a file,
+
+27
+00:00:57,290 --> 00:00:58,579
+the file doesn't exist,
+
+28
+00:00:58,579 --> 00:01:00,905
+lots of things can
+go wrong with files,
+
+29
+00:01:00,905 --> 00:01:03,290
+What if it doesn't work?
+Well, if I get an error,
+
+30
+00:01:03,290 --> 00:01:05,345
+I still need to make sure I close it,
+
+31
+00:01:05,345 --> 00:01:06,830
+So I use a try finally,
+
+32
+00:01:06,830 --> 00:01:08,480
+so that if it goes well,
+
+33
+00:01:08,480 --> 00:01:10,730
+it opens and writes to the
+file, then it closes it,
+
+34
+00:01:10,730 --> 00:01:13,415
+If however, I try to open a
+file and something goes wrong,
+
+35
+00:01:13,415 --> 00:01:15,000
+I still close it,
+
+36
+00:01:15,000 --> 00:01:16,880
+This is absolutely so important
+
+37
+00:01:16,880 --> 00:01:18,860
+to avoid errors the next
+time you run the code,
+
+38
+00:01:18,860 --> 00:01:23,510
+because leaving things open really
+messes stuff up down the blade,
+
+39
+00:01:23,510 --> 00:01:26,070
+So what we can do is there is
+
+40
+00:01:26,070 --> 00:01:29,015
+a really fantastic
+command called With,
+
+41
+00:01:29,015 --> 00:01:30,800
+What it will do for you is it
+
+42
+00:01:30,800 --> 00:01:34,050
+basically will take care
+of closing for you,
+
+43
+00:01:34,050 --> 00:01:36,350
+It's designed for these objects
+
+44
+00:01:36,350 --> 00:01:38,450
+where we always want to
+remember to close it,
+
+45
+00:01:38,450 --> 00:01:42,395
+but some of us don't always remember
+to do that right in our code,
+
+46
+00:01:42,395 --> 00:01:44,300
+So I can simply say, hey,
+
+47
+00:01:44,300 --> 00:01:49,190
+when we do With an open command to
+write to this file as a stream,
+
+48
+00:01:49,190 --> 00:01:52,370
+when we do it right,
+this will basically say,
+
+49
+00:01:52,370 --> 00:01:54,410
+hey, if that goes successfully,
+
+50
+00:01:54,410 --> 00:01:55,655
+close when we're done,
+
+51
+00:01:55,655 --> 00:01:56,885
+If that gives me an error,
+
+52
+00:01:56,885 --> 00:01:58,115
+close when we're done,
+
+53
+00:01:58,115 --> 00:02:03,680
+So this two lines of code is the
+same as a whole try and finally,
+
+54
+00:02:03,680 --> 00:02:07,490
+So this is a wonderful
+feature, highly recommended,
+
+55
+00:02:07,490 --> 00:02:10,190
+really good practice when
+you're working with any object
+
+56
+00:02:10,190 --> 00:02:12,110
+that has a requirement
+
+57
+00:02:12,110 --> 00:02:14,320
+that you close it when you're
+finished working with it,
+
+58
+00:02:14,320 --> 00:02:17,790
+Now, let's take a look
+at that in some code,
+

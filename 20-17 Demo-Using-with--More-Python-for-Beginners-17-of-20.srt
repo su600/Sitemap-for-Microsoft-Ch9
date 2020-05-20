@@ -1,0 +1,243 @@
+1
+00:00:00,000 --> 00:00:04,080
+>> So let's see how we can use
+the with command to clean up
+
+2
+00:00:04,080 --> 00:00:05,760
+our code when we're
+working with objects
+
+3
+00:00:05,760 --> 00:00:07,800
+that need to be closed
+when we finish them,
+
+4
+00:00:07,800 --> 00:00:10,305
+Classic example is when you
+are working with a file,
+
+5
+00:00:10,305 --> 00:00:12,240
+So what we would very commonly do in
+
+6
+00:00:12,240 --> 00:00:14,745
+our code is we would use
+something like a try statement,
+
+7
+00:00:14,745 --> 00:00:18,000
+So we can say, hey, open up
+our file and write to it,
+
+8
+00:00:18,000 --> 00:00:19,530
+Now, if everything goes
+
+9
+00:00:19,530 --> 00:00:21,315
+well and you've successfully
+written to the file,
+
+10
+00:00:21,315 --> 00:00:23,940
+we want to make sure we close
+that file stream when we're done,
+
+11
+00:00:23,940 --> 00:00:27,060
+we do not want to leave it
+open, So really important,
+
+12
+00:00:27,060 --> 00:00:29,040
+But if we open to it and
+
+13
+00:00:29,040 --> 00:00:31,500
+write to it and somewhere along
+the way something goes wrong,
+
+14
+00:00:31,500 --> 00:00:33,440
+we still need to make
+sure we close it,
+
+15
+00:00:33,440 --> 00:00:35,835
+So that's why we put
+this into a try finally,
+
+16
+00:00:35,835 --> 00:00:38,325
+So regardless of whether
+we got an error or not,
+
+17
+00:00:38,325 --> 00:00:40,050
+it always closes the stream,
+
+18
+00:00:40,050 --> 00:00:41,430
+Super important code,
+
+19
+00:00:41,430 --> 00:00:43,725
+So we could run this code,
+
+20
+00:00:43,725 --> 00:00:46,260
+If we just run that here,
+
+21
+00:00:46,260 --> 00:00:50,180
+You'll see it does successfully
+create this output,txt file,
+
+22
+00:00:50,180 --> 00:00:54,215
+and it'll write Lorem
+ipsum out to that file,
+
+23
+00:00:54,215 --> 00:00:59,835
+But I can replace all of this
+code using the with command,
+
+24
+00:00:59,835 --> 00:01:03,170
+So what the with command does
+for me is it allows me to write
+
+25
+00:01:03,170 --> 00:01:05,405
+some really clean code
+
+26
+00:01:05,405 --> 00:01:07,955
+for any type of object where
+there is that requirement,
+
+27
+00:01:07,955 --> 00:01:09,360
+always close it when you're done,
+
+28
+00:01:09,360 --> 00:01:11,180
+the width command will basically
+
+29
+00:01:11,180 --> 00:01:14,120
+automatically close it for you
+when the commands are complete,
+
+30
+00:01:14,120 --> 00:01:15,440
+So in this case, I say,
+
+31
+00:01:15,440 --> 00:01:16,790
+well with in this case,
+
+32
+00:01:16,790 --> 00:01:18,935
+opening a file stream called
+
+33
+00:01:18,935 --> 00:01:21,730
+output,txt to write
+to and do a write,
+
+34
+00:01:21,730 --> 00:01:23,630
+When it's finished, if
+everything goes well,
+
+35
+00:01:23,630 --> 00:01:24,935
+it'll close it for me,
+
+36
+00:01:24,935 --> 00:01:26,375
+and if there's an error,
+
+37
+00:01:26,375 --> 00:01:27,700
+it'll still close it for me,
+
+38
+00:01:27,700 --> 00:01:30,695
+So this is really exactly the
+same code as try finally,
+
+39
+00:01:30,695 --> 00:01:32,015
+but so much cleaner,
+
+40
+00:01:32,015 --> 00:01:34,310
+so much easier to read
+once you get used to it,
+
+41
+00:01:34,310 --> 00:01:36,065
+So if we run this code,
+
+42
+00:01:36,065 --> 00:01:38,850
+we're going to see
+exactly the same output,
+
+43
+00:01:39,200 --> 00:01:43,865
+There we go, and we'll see that
+output,txt file written there,
+
+44
+00:01:43,865 --> 00:01:46,310
+But this time I did it
+with the with command,
+
+45
+00:01:46,310 --> 00:01:49,005
+So this way I guarantee
+that my file stream is
+
+46
+00:01:49,005 --> 00:01:51,800
+going to get closed when I'm
+finished working with it,
+
+47
+00:01:51,800 --> 00:01:53,030
+regardless of whether or not I
+
+48
+00:01:53,030 --> 00:01:54,925
+had an error when the
+code was running,
+
+49
+00:01:54,925 --> 00:01:57,020
+This is not just limited
+to file streams,
+
+50
+00:01:57,020 --> 00:01:58,340
+any of these objects where there's
+
+51
+00:01:58,340 --> 00:02:00,140
+that requirement to close
+it when you're done,
+
+52
+00:02:00,140 --> 00:02:01,520
+you can use a with command,
+
+53
+00:02:01,520 --> 00:02:03,690
+Make it your best friend,
+

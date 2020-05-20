@@ -1,0 +1,280 @@
+1
+00:00:00,000 --> 00:00:02,669
+>> Let's see how we could explore
+
+2
+00:00:02,669 --> 00:00:05,430
+a DataFrame using a
+little bit of code,
+
+3
+00:00:05,430 --> 00:00:09,525
+So let's first again import in
+
+4
+00:00:09,525 --> 00:00:13,635
+our pandas and let's
+create that DataFrame,
+
+5
+00:00:13,635 --> 00:00:15,900
+Now you might be wondering, hey,
+
+6
+00:00:15,900 --> 00:00:18,840
+why in the world would you start
+exploring a DataFrame when
+
+7
+00:00:18,840 --> 00:00:22,740
+you've hard-coded in what
+that's going to look like?
+
+8
+00:00:22,740 --> 00:00:25,440
+Again, you're exactly right,
+
+9
+00:00:25,440 --> 00:00:26,940
+We're going to show
+a little bit later
+
+10
+00:00:26,940 --> 00:00:28,650
+how we can load up some data,
+
+11
+00:00:28,650 --> 00:00:30,930
+We just want a simple
+DataFrame that we
+
+12
+00:00:30,930 --> 00:00:33,810
+could start to show off
+some of the skills,
+
+13
+00:00:33,810 --> 00:00:37,290
+So that way when it comes time
+to load up some data that we
+
+14
+00:00:37,290 --> 00:00:39,180
+know better of what's
+
+15
+00:00:39,180 --> 00:00:41,340
+going on and how to start
+exploring all of that,
+
+16
+00:00:41,340 --> 00:00:42,885
+So there we go,
+
+17
+00:00:42,885 --> 00:00:44,790
+I'm just going to
+create my DataFrame,
+
+18
+00:00:44,790 --> 00:00:48,090
+There it all is, and
+now let's explore it,
+
+19
+00:00:48,090 --> 00:00:50,030
+So like we mentioned before,
+
+20
+00:00:50,030 --> 00:00:52,250
+head will give us the ability to see
+
+21
+00:00:52,250 --> 00:00:56,525
+the top three rows
+because I specify three,
+
+22
+00:00:56,525 --> 00:00:58,819
+If I specify two for example,
+
+23
+00:00:58,819 --> 00:01:01,700
+as you might expect that
+it's going to give us back
+
+24
+00:01:01,700 --> 00:01:05,515
+just simply those two items,
+
+25
+00:01:05,515 --> 00:01:09,350
+Five, I think you'll start to
+see where all of this as going,
+
+26
+00:01:09,350 --> 00:01:12,465
+it will just give you
+back that number of rows,
+
+27
+00:01:12,465 --> 00:01:14,105
+If you want to start from the bottom,
+
+28
+00:01:14,105 --> 00:01:16,640
+then you could simply use tail,
+
+29
+00:01:16,640 --> 00:01:18,875
+and that will just count
+up from the bottom,
+
+30
+00:01:18,875 --> 00:01:20,270
+So if we take a look,
+
+31
+00:01:20,270 --> 00:01:23,060
+you'll notice that there
+is the bottom of that,
+
+32
+00:01:23,060 --> 00:01:25,489
+Certainly, it'll read
+a Pearson and Changi,
+
+33
+00:01:25,489 --> 00:01:28,250
+and if we take a look over here,
+
+34
+00:01:28,250 --> 00:01:30,545
+we can see back in our
+original DataFrame,
+
+35
+00:01:30,545 --> 00:01:34,815
+that's exactly what we've got there,
+
+36
+00:01:34,815 --> 00:01:38,460
+If I just want to see
+what's the shape,
+
+37
+00:01:38,460 --> 00:01:40,980
+what does it look
+like, seven and three,
+
+38
+00:01:40,980 --> 00:01:42,710
+Again, remember that the
+
+39
+00:01:42,710 --> 00:01:44,855
+three is giving us the
+number of data columns,
+
+40
+00:01:44,855 --> 00:01:47,450
+so it's not counting the index,
+
+41
+00:01:47,450 --> 00:01:52,205
+Then finally, I can see
+the full info of that,
+
+42
+00:01:52,205 --> 00:01:54,530
+So I can see the columns,
+
+43
+00:01:54,530 --> 00:01:55,850
+I can see the names,
+
+44
+00:01:55,850 --> 00:02:00,365
+I can see how many items in
+there are not null, etc,
+
+45
+00:02:00,365 --> 00:02:03,755
+I would say of all the information
+that's going to give you,
+
+46
+00:02:03,755 --> 00:02:06,710
+the none null is probably going to
+
+47
+00:02:06,710 --> 00:02:09,950
+be one of the most important
+things because working with
+
+48
+00:02:09,950 --> 00:02:12,875
+null values can really be
+
+49
+00:02:12,875 --> 00:02:15,350
+a struggle because sometimes
+
+50
+00:02:15,350 --> 00:02:17,750
+they'll indicate that
+there's just missing data,
+
+51
+00:02:17,750 --> 00:02:20,240
+Sometimes, it will
+indicator condition,
+
+52
+00:02:20,240 --> 00:02:22,535
+when you start doing math with them,
+
+53
+00:02:22,535 --> 00:02:25,315
+things start to go
+sideways very quickly,
+
+54
+00:02:25,315 --> 00:02:28,105
+Null values are really a struggle,
+
+55
+00:02:28,105 --> 00:02:30,645
+So being able to see
+real quickly, hey,
+
+56
+00:02:30,645 --> 00:02:34,970
+what's my data look like is
+going to be really powerful,
+
+57
+00:02:34,970 --> 00:02:38,135
+and it really is going to
+be probably the first thing
+
+58
+00:02:38,135 --> 00:02:41,525
+you will always do when
+you load up some data,
+
+59
+00:02:41,525 --> 00:02:43,730
+especially data that
+you're not overly familiar
+
+60
+00:02:43,730 --> 00:02:46,910
+with to see what it is
+that you're working with,
+
+61
+00:02:46,910 --> 00:02:50,100
+Now you've got the tools
+to be able to do that,
+

@@ -1,0 +1,395 @@
+1
+00:00:00,000 --> 00:00:03,120
+>> Let's see our little
+framework in action here,
+
+2
+00:00:03,120 --> 00:00:05,520
+So what I've got is
+
+3
+00:00:05,520 --> 00:00:11,385
+my two little classes here
+of loggable and connection,
+
+4
+00:00:11,385 --> 00:00:14,670
+Again, what loggable is going
+to do for me is enable logging,
+
+5
+00:00:14,670 --> 00:00:19,125
+my connection is going to allow
+me then to handle my connection,
+
+6
+00:00:19,125 --> 00:00:23,730
+Setting up the couple of
+properties for title and server,
+
+7
+00:00:23,730 --> 00:00:27,450
+and then setting up the couple
+little functions that are
+
+8
+00:00:27,450 --> 00:00:30,990
+going to simulate whatever it is
+that we're trying to do here,
+
+9
+00:00:30,990 --> 00:00:33,180
+So in my case, it's going
+to be writing out to
+
+10
+00:00:33,180 --> 00:00:37,110
+the log file and connecting
+out to the database,
+
+11
+00:00:37,110 --> 00:00:39,890
+Then what you're going to
+notice is that I've got
+
+12
+00:00:39,890 --> 00:00:43,210
+my little SQL database
+that I'm creating here,
+
+13
+00:00:43,210 --> 00:00:46,310
+My little SQL database
+is then going to
+
+14
+00:00:46,310 --> 00:00:50,935
+inherit from both
+connection and loggable,
+
+15
+00:00:50,935 --> 00:00:54,975
+We're going to set up the
+title and the server,
+
+16
+00:00:54,975 --> 00:00:57,185
+Then what you're going
+to notice right here is,
+
+17
+00:00:57,185 --> 00:00:59,630
+here's our little fancy framework,
+
+18
+00:00:59,630 --> 00:01:02,390
+Our fancy framework is
+going to check to see,
+
+19
+00:01:02,390 --> 00:01:04,400
+hey, did we inherit from connection?
+
+20
+00:01:04,400 --> 00:01:06,800
+If we did, we'll run
+the connect code,
+
+21
+00:01:06,800 --> 00:01:08,330
+Hey, did we inherit from Loggable?
+
+22
+00:01:08,330 --> 00:01:12,475
+If we did, then we'll go
+ahead and run the log code,
+
+23
+00:01:12,475 --> 00:01:15,050
+Actually I'm going to
+move this down real quick
+
+24
+00:01:15,050 --> 00:01:16,250
+here just because I'm going to want
+
+25
+00:01:16,250 --> 00:01:18,170
+to play around with a
+couple of things here,
+
+26
+00:01:18,170 --> 00:01:19,280
+so I'm just going to move that down,
+
+27
+00:01:19,280 --> 00:01:22,755
+No big thing going on there,
+so just move that down,
+
+28
+00:01:22,755 --> 00:01:25,035
+So there's my little framework,
+
+29
+00:01:25,035 --> 00:01:29,190
+Now, I'm going to go ahead
+and use the framework,
+
+30
+00:01:29,190 --> 00:01:33,465
+So I'm going to inherit from
+
+31
+00:01:33,465 --> 00:01:38,220
+connection and the Loggable
+to enable that behavior,
+
+32
+00:01:38,220 --> 00:01:41,930
+So now, when I create
+the instance and I go
+
+33
+00:01:41,930 --> 00:01:45,800
+ahead and pass it through
+my high-end framework,
+
+34
+00:01:45,800 --> 00:01:48,950
+What I'm going to notice is that
+it's going to tell me that it's
+
+35
+00:01:48,950 --> 00:01:52,340
+logging the SQL connection demo
+
+36
+00:01:52,340 --> 00:01:55,830
+and that it's connecting
+to some server,
+
+37
+00:02:00,200 --> 00:02:02,685
+There we go, Sure enough,
+
+38
+00:02:02,685 --> 00:02:04,275
+that's exactly what we get,
+
+39
+00:02:04,275 --> 00:02:08,895
+So it's connecting out to the
+database, log the message,
+
+40
+00:02:08,895 --> 00:02:13,385
+Because again, that is what we
+went ahead and inherited from,
+
+41
+00:02:13,385 --> 00:02:17,980
+Now, what's great about this
+little framework that I've created
+
+42
+00:02:17,980 --> 00:02:23,140
+here is the fact that if I
+want to do something else,
+
+43
+00:02:23,140 --> 00:02:26,665
+so let's say that I'm going
+to create a brand new class,
+
+44
+00:02:26,665 --> 00:02:29,750
+and this is going to
+be just a logger,
+
+45
+00:02:29,910 --> 00:02:34,515
+Then what I can do is just
+inherit from Loggable,
+
+46
+00:02:34,515 --> 00:02:40,660
+I can go ahead and set up
+my init just like that,
+
+47
+00:02:40,660 --> 00:02:42,745
+and we don't care about the super,
+
+48
+00:02:42,745 --> 00:02:46,670
+Then I'm going to say self,title,
+
+49
+00:02:46,670 --> 00:02:48,410
+You'll notice that I get IntelliSense
+
+50
+00:02:48,410 --> 00:02:50,915
+here because I'm
+inheriting from Loggable,
+
+51
+00:02:50,915 --> 00:02:54,370
+Except that to be just logging,
+
+52
+00:02:54,370 --> 00:02:57,345
+go ahead and save that,
+
+53
+00:02:57,345 --> 00:03:02,345
+Let's go ahead and create
+a brand new instance,
+
+54
+00:03:02,345 --> 00:03:08,590
+So we'll say, just_log
+equal to JustLog,
+
+55
+00:03:08,590 --> 00:03:12,660
+Then we'll go ahead and
+just log like that,
+
+56
+00:03:12,660 --> 00:03:15,500
+Pass that in again to our
+very fancy framework,
+
+57
+00:03:15,500 --> 00:03:19,235
+Now, what we're going to
+notice is the fact that
+
+58
+00:03:19,235 --> 00:03:23,110
+it's only going to do our logging,
+
+59
+00:03:23,110 --> 00:03:26,150
+So now with this framework,
+
+60
+00:03:26,150 --> 00:03:28,550
+what I've enabled for
+developers that are
+
+61
+00:03:28,550 --> 00:03:31,175
+going to be using
+this is that ability,
+
+62
+00:03:31,175 --> 00:03:34,505
+So if you want to be able to
+connect, you can do that,
+
+63
+00:03:34,505 --> 00:03:36,170
+If you want to be able to log,
+
+64
+00:03:36,170 --> 00:03:37,355
+you can do that,
+
+65
+00:03:37,355 --> 00:03:43,715
+So really a nice way to set up
+and work with that framework,
+
+66
+00:03:43,715 --> 00:03:46,325
+So like I mentioned at the outset,
+
+67
+00:03:46,325 --> 00:03:50,840
+we want to typically avoid setting
+
+68
+00:03:50,840 --> 00:03:55,055
+up multiple inheritance when
+we're writing our own code,
+
+69
+00:03:55,055 --> 00:03:56,975
+unless we happen to be
+setting up a framework,
+
+70
+00:03:56,975 --> 00:04:00,400
+but instead we will be
+using it quite frequently,
+
+71
+00:04:00,400 --> 00:04:02,895
+So when we're using other frameworks,
+
+72
+00:04:02,895 --> 00:04:05,900
+So if you're heading out and
+maybe learning Django or
+
+73
+00:04:05,900 --> 00:04:09,200
+learning another framework
+that depends upon Mixin's,
+
+74
+00:04:09,200 --> 00:04:11,090
+this is the magic that's happening,
+
+75
+00:04:11,090 --> 00:04:13,955
+That you inherit from
+yet another class,
+
+76
+00:04:13,955 --> 00:04:17,150
+you go ahead and set up
+a couple of properties,
+
+77
+00:04:17,150 --> 00:04:18,830
+maybe set up a couple of methods,
+
+78
+00:04:18,830 --> 00:04:21,230
+and then voila something really
+
+79
+00:04:21,230 --> 00:04:23,945
+cool is now happening
+inside of your application,
+
+80
+00:04:23,945 --> 00:04:25,955
+This is what's making it happen,
+
+81
+00:04:25,955 --> 00:04:28,355
+It's doing exactly what I did here,
+
+82
+00:04:28,355 --> 00:04:30,710
+It's checking to see, did
+you inherit from a class?
+
+83
+00:04:30,710 --> 00:04:32,810
+If you did, then we'll go ahead
+
+84
+00:04:32,810 --> 00:04:35,000
+and call a couple of things on that,
+
+85
+00:04:35,000 --> 00:04:40,940
+So that is multiple inheritance
+and Mixins in Python,
+

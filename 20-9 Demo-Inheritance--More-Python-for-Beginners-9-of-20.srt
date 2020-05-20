@@ -1,0 +1,941 @@
+1
+00:00:00,000 --> 00:00:03,750
+>> Let's start exploring
+inheritance and some of
+
+2
+00:00:03,750 --> 00:00:07,980
+the cool things that we're
+able to do inside of Python,
+
+3
+00:00:07,980 --> 00:00:11,310
+So I've already got a bit of
+code already built for us,
+
+4
+00:00:11,310 --> 00:00:14,825
+What I want you to notice is that
+we've got our little person,
+
+5
+00:00:14,825 --> 00:00:16,985
+just like we've had a
+couple of times now,
+
+6
+00:00:16,985 --> 00:00:19,040
+We're going to go ahead and set up
+
+7
+00:00:19,040 --> 00:00:24,530
+a little name field and store
+that inside of the object itself,
+
+8
+00:00:24,530 --> 00:00:28,985
+and we're also going to set up
+a little method here called,
+
+9
+00:00:28,985 --> 00:00:31,610
+say_ hello, which will
+print out, Hello,
+
+10
+00:00:31,610 --> 00:00:35,555
+and then the name that we've
+stored inside of there,
+
+11
+00:00:35,555 --> 00:00:37,640
+You're also going to
+notice that we're
+
+12
+00:00:37,640 --> 00:00:39,905
+going to set up a new
+class called Person,
+
+13
+00:00:39,905 --> 00:00:43,075
+or sorry, student, that
+will inherit from person,
+
+14
+00:00:43,075 --> 00:00:46,780
+Its going to have a name
+property and a school property,
+
+15
+00:00:46,780 --> 00:00:50,435
+You're also going to notice
+the fact that we're going to
+
+16
+00:00:50,435 --> 00:00:55,000
+call that parent constructor
+to set up the name,
+
+17
+00:00:55,000 --> 00:00:56,930
+You're going to notice that we're
+
+18
+00:00:56,930 --> 00:00:58,430
+going to be in charge of the school,
+
+19
+00:00:58,430 --> 00:01:00,680
+so we'll set that up here,
+
+20
+00:01:00,680 --> 00:01:06,880
+Then we can add on additional
+functionality as we see fit,
+
+21
+00:01:06,880 --> 00:01:13,145
+So if we go ahead and create
+an instance of our student,
+
+22
+00:01:13,145 --> 00:01:16,405
+then you'll notice that we
+can call that say_ hello,
+
+23
+00:01:16,405 --> 00:01:20,515
+we can call the sing_school_ song,
+
+24
+00:01:20,515 --> 00:01:24,200
+and all of that will execute
+the way that we would expect,
+
+25
+00:01:24,200 --> 00:01:26,015
+So let's start here,
+
+26
+00:01:26,015 --> 00:01:28,350
+This is where I want to start,
+
+27
+00:01:30,950 --> 00:01:33,615
+Just clearing out my screen,
+
+28
+00:01:33,615 --> 00:01:38,460
+Now, let's go ahead and
+say, Python demo,py,
+
+29
+00:01:38,460 --> 00:01:41,540
+What we're going to notice
+is that we get that Hello,
+
+30
+00:01:41,540 --> 00:01:44,750
+Christopher and that ode to UVM,
+
+31
+00:01:44,750 --> 00:01:48,460
+which is actually not the school
+that I went to, but that's okay,
+
+32
+00:01:48,460 --> 00:01:52,065
+So that is coming from person,
+
+33
+00:01:52,065 --> 00:01:54,045
+Remember, that's our say_ hello,
+
+34
+00:01:54,045 --> 00:01:56,670
+and this is coming from
+
+35
+00:01:56,670 --> 00:02:02,920
+our sing_ school_ song
+and that is on student,
+
+36
+00:02:03,040 --> 00:02:08,000
+Now, as we've already
+mentioned, we can also,
+
+37
+00:02:08,000 --> 00:02:11,780
+let me just comment out these
+two lines of code right here,
+
+38
+00:02:11,780 --> 00:02:14,945
+do a little bit of
+investigative work,
+
+39
+00:02:14,945 --> 00:02:17,585
+So we can start to see, hey,
+
+40
+00:02:17,585 --> 00:02:24,785
+is this a student? Just like that,
+
+41
+00:02:24,785 --> 00:02:26,615
+You know what I'm going
+to do? I'm going to use
+
+42
+00:02:26,615 --> 00:02:30,955
+the cool little formatting function
+
+43
+00:02:30,955 --> 00:02:33,610
+that's available to me in Python,
+I'm just going to go like that,
+
+44
+00:02:33,610 --> 00:02:35,590
+Boom, So now that will automatically
+
+45
+00:02:35,590 --> 00:02:38,065
+just print out as appropriate,
+
+46
+00:02:38,065 --> 00:02:40,390
+Let's go ahead and do the
+exact same thing down
+
+47
+00:02:40,390 --> 00:02:43,375
+here is this a person?
+
+48
+00:02:43,375 --> 00:02:45,565
+Then boom,
+
+49
+00:02:45,565 --> 00:02:50,440
+Boom, Boom, Then last but not least,
+
+50
+00:02:50,440 --> 00:02:52,135
+my little format string,
+
+51
+00:02:52,135 --> 00:02:56,185
+is student a person?
+
+52
+00:02:56,185 --> 00:03:02,175
+Then boom,
+
+53
+00:03:02,175 --> 00:03:05,370
+Okay, I really love this
+little format string,
+
+54
+00:03:05,370 --> 00:03:09,100
+It's something that you see in
+many other programming languages,
+
+55
+00:03:09,100 --> 00:03:12,425
+So that way I can actually just
+go curly brace, curly brace,
+
+56
+00:03:12,425 --> 00:03:16,745
+and then it will just execute
+whatever code is inside of here,
+
+57
+00:03:16,745 --> 00:03:20,930
+What's also really nice
+about this is if maybe I had
+
+58
+00:03:20,930 --> 00:03:23,120
+a variable name in here
+and it was returning
+
+59
+00:03:23,120 --> 00:03:25,850
+back something that's not
+a string, Or in my case,
+
+60
+00:03:25,850 --> 00:03:27,470
+I've got a function
+here that it's going
+
+61
+00:03:27,470 --> 00:03:29,385
+to return back something
+that's not a string,
+
+62
+00:03:29,385 --> 00:03:32,075
+the issubclass, for example,
+
+63
+00:03:32,075 --> 00:03:33,400
+returns back a Boolean,
+
+64
+00:03:33,400 --> 00:03:36,470
+It will automatically do a
+string conversion for me,
+
+65
+00:03:36,470 --> 00:03:38,165
+It's wonderful, I love it,
+
+66
+00:03:38,165 --> 00:03:42,860
+It's a really nice little
+Python 3 bit of syntax,
+
+67
+00:03:42,860 --> 00:03:44,695
+It's great syntactical candy,
+
+68
+00:03:44,695 --> 00:03:48,480
+Okay, So now, let's go
+ahead and run that,
+
+69
+00:03:48,480 --> 00:03:51,260
+Now, what we're going to
+notice is the fact that,
+
+70
+00:03:51,260 --> 00:03:53,280
+yes, we have a student,
+
+71
+00:03:53,280 --> 00:03:56,580
+Yes, it's person, and
+yes student is a person,
+
+72
+00:03:56,580 --> 00:03:58,260
+So we created that object right
+
+73
+00:03:58,260 --> 00:04:01,370
+there and then we went
+ahead and we check to see,
+
+74
+00:04:01,370 --> 00:04:04,550
+hey, student person and
+a student is a person,
+
+75
+00:04:04,550 --> 00:04:07,195
+all of that came back as true,
+
+76
+00:04:07,195 --> 00:04:10,565
+Okay, Let's keep on keeping on here,
+
+77
+00:04:10,565 --> 00:04:15,845
+Let me comment out those
+lines of code right there
+
+78
+00:04:15,845 --> 00:04:21,730
+and let me take one real quick
+step back to our student,
+
+79
+00:04:21,730 --> 00:04:25,340
+What I want to do is I want to create
+
+80
+00:04:25,340 --> 00:04:29,980
+a brand new definition of say_ hello,
+
+81
+00:04:29,980 --> 00:04:31,430
+Now, you'll notice that
+
+82
+00:04:31,430 --> 00:04:34,735
+the IntelliSense automatically
+gives me say_ hello,
+
+83
+00:04:34,735 --> 00:04:38,560
+The reason for that is
+student inherits from person,
+
+84
+00:04:38,560 --> 00:04:41,285
+person has that say_hello,
+
+85
+00:04:41,285 --> 00:04:47,210
+So now, when I hit tab to let
+this auto complete for me,
+
+86
+00:04:47,210 --> 00:04:49,445
+you're going to notice
+the fact that it
+
+87
+00:04:49,445 --> 00:04:53,450
+automatically makes this
+call to super forming,
+
+88
+00:04:53,450 --> 00:04:59,240
+So if I want to as part
+of my new implementation,
+
+89
+00:04:59,240 --> 00:05:02,450
+let the parent class
+do some of the work,
+
+90
+00:05:02,450 --> 00:05:05,180
+or maybe I need to
+have it do something,
+
+91
+00:05:05,180 --> 00:05:07,340
+grab the value and then append
+
+92
+00:05:07,340 --> 00:05:10,065
+onto it or whatever it
+is that I might want,
+
+93
+00:05:10,065 --> 00:05:12,090
+I have that ability here,
+
+94
+00:05:12,090 --> 00:05:13,545
+So I can say, hey,
+
+95
+00:05:13,545 --> 00:05:18,695
+let the parent do some work,
+
+96
+00:05:18,695 --> 00:05:21,040
+whatever that work might be,
+
+97
+00:05:21,040 --> 00:05:25,240
+Then I can add on my own,
+
+98
+00:05:26,570 --> 00:05:28,860
+my own custom code,
+
+99
+00:05:28,860 --> 00:05:32,730
+and I can say something like print,
+
+100
+00:05:33,340 --> 00:05:37,965
+oops, I am rather tired,
+
+101
+00:05:37,965 --> 00:05:40,730
+I feel like changing my quotes
+around to put it in the I'm,
+
+102
+00:05:40,730 --> 00:05:42,110
+So that's going to be just fine,
+
+103
+00:05:42,110 --> 00:05:44,930
+So I can just say something
+like, I am tired,
+
+104
+00:05:44,930 --> 00:05:48,260
+So that's going to
+execute from student,
+
+105
+00:05:48,260 --> 00:05:51,200
+So let's stop and pause for
+just a second here and talk
+
+106
+00:05:51,200 --> 00:05:54,485
+about what's about to happen
+when I run this code,
+
+107
+00:05:54,485 --> 00:05:57,485
+When I create an instance of student,
+
+108
+00:05:57,485 --> 00:05:59,060
+it's now a student,
+
+109
+00:05:59,060 --> 00:06:02,030
+So when I call,
+say_hello off of that,
+
+110
+00:06:02,030 --> 00:06:06,815
+it's now going to do
+that as a student,
+
+111
+00:06:06,815 --> 00:06:12,845
+So it's going to add on that
+I am rather tired part of it,
+
+112
+00:06:12,845 --> 00:06:17,100
+But you're also going to notice
+that I can still call the super,
+
+113
+00:06:17,100 --> 00:06:21,345
+So I'm still going to be
+able to say, hi, I'm,
+
+114
+00:06:21,345 --> 00:06:25,710
+and then whoever it is that it
+happens to be, so I'm Christopher,
+
+115
+00:06:25,710 --> 00:06:29,255
+So we're going to see
+both of those in action,
+
+116
+00:06:29,255 --> 00:06:31,400
+So let's go ahead and run our code,
+
+117
+00:06:31,400 --> 00:06:33,540
+I'm just going to get rid of
+that bottom function here,
+
+118
+00:06:33,540 --> 00:06:36,910
+So you're going to notice that I'm
+going to call that, say_ hello,
+
+119
+00:06:36,910 --> 00:06:38,880
+So let's go ahead and save this,
+
+120
+00:06:38,880 --> 00:06:45,870
+So now, let's go ahead and
+run that Python demo,py,
+
+121
+00:06:45,870 --> 00:06:47,945
+Now, what you're going to notice
+
+122
+00:06:47,945 --> 00:06:51,139
+is that this turning from the parent,
+
+123
+00:06:51,139 --> 00:06:56,625
+and then this is now
+running from the student,
+
+124
+00:06:56,625 --> 00:06:59,720
+Now, the only reason
+that that parent code is
+
+125
+00:06:59,720 --> 00:07:04,265
+executing is because of the
+fact that I told it to execute,
+
+126
+00:07:04,265 --> 00:07:10,170
+If I take that out
+and now I rerun this,
+
+127
+00:07:10,170 --> 00:07:13,820
+what you're going to notice is
+the fact that it just says,
+
+128
+00:07:13,820 --> 00:07:15,305
+I am rather tired,
+
+129
+00:07:15,305 --> 00:07:17,750
+So when we override a function,
+
+130
+00:07:17,750 --> 00:07:19,790
+it's not going to
+
+131
+00:07:19,790 --> 00:07:22,895
+automatically call the parents
+or called the base class,
+
+132
+00:07:22,895 --> 00:07:25,705
+we have to tell it to do that,
+
+133
+00:07:25,705 --> 00:07:28,850
+The last thing that
+I want to show off
+
+134
+00:07:28,850 --> 00:07:33,140
+here is that neat little
+string function here,
+
+135
+00:07:33,140 --> 00:07:40,185
+So let's start off by just
+trying to print out our student,
+
+136
+00:07:40,185 --> 00:07:42,750
+So I'm just going to
+say, print Student,
+
+137
+00:07:42,750 --> 00:07:44,295
+So let's see what happens,
+
+138
+00:07:44,295 --> 00:07:46,695
+So I'm going to run this bit of code,
+
+139
+00:07:46,695 --> 00:07:49,425
+I'm going to see what happens,
+
+140
+00:07:49,425 --> 00:07:51,560
+What you're going to
+notice is it gives me
+
+141
+00:07:51,560 --> 00:07:54,425
+back something that's
+not overly helpful,
+
+142
+00:07:54,425 --> 00:07:56,580
+It's telling me the fact
+that it's an object,
+
+143
+00:07:56,580 --> 00:08:01,880
+It's giving me some form of a
+memory address, and that's it,
+
+144
+00:08:01,880 --> 00:08:03,545
+I don't know what to do with that,
+
+145
+00:08:03,545 --> 00:08:05,210
+It's not overly helpful,
+
+146
+00:08:05,210 --> 00:08:07,160
+Now, the reason that
+it's giving me that is
+
+147
+00:08:07,160 --> 00:08:09,830
+because Python is just
+coded to do that,
+
+148
+00:08:09,830 --> 00:08:12,200
+If it doesn't know how to
+convert something into a string,
+
+149
+00:08:12,200 --> 00:08:13,640
+it just gives you the class name,
+
+150
+00:08:13,640 --> 00:08:17,715
+the memory location, and
+we're done, Not helpful,
+
+151
+00:08:17,715 --> 00:08:19,610
+Now, maybe it's helpful
+in certain situations,
+
+152
+00:08:19,610 --> 00:08:22,280
+but the most part it's not helpful,
+
+153
+00:08:22,280 --> 00:08:24,710
+It'd be nice if I could say, hey,
+
+154
+00:08:24,710 --> 00:08:26,960
+if somebody tries to
+convert you to a string,
+
+155
+00:08:26,960 --> 00:08:28,805
+this is what I want you to do,
+
+156
+00:08:28,805 --> 00:08:32,685
+Net is where str comes into play,
+
+157
+00:08:32,685 --> 00:08:36,785
+So I'm going to say
+def__, You'll notice
+
+158
+00:08:36,785 --> 00:08:39,455
+that it automatically
+enlists off things like eq,
+
+159
+00:08:39,455 --> 00:08:40,700
+and greater than, and less than,
+
+160
+00:08:40,700 --> 00:08:42,890
+So if you want to enable
+that functionality,
+
+161
+00:08:42,890 --> 00:08:45,675
+you can actually do that right
+here, it's pretty slick,
+
+162
+00:08:45,675 --> 00:08:47,180
+Again, we'll have a link
+
+163
+00:08:47,180 --> 00:08:49,220
+to all the different
+things that you could do,
+
+164
+00:08:49,220 --> 00:08:52,295
+In my case, I want str,
+
+165
+00:08:52,295 --> 00:08:57,305
+I need to just return
+back a string here,
+
+166
+00:08:57,305 --> 00:09:01,540
+So I'm going to return back
+something a little bit fancier,
+
+167
+00:09:01,540 --> 00:09:07,495
+I'm going to say that I'm
+going to return the name,
+
+168
+00:09:07,495 --> 00:09:09,120
+self,name
+
+169
+00:09:09,120 --> 00:09:17,880
+attends and then { self,
+
+170
+00:09:17,880 --> 00:09:19,410
+school} Much more helpful,
+
+171
+00:09:19,410 --> 00:09:22,985
+So now when I go ahead and run this,
+
+172
+00:09:22,985 --> 00:09:25,520
+now what you're going
+to notice is that I get
+
+173
+00:09:25,520 --> 00:09:28,110
+that neat little
+string representation,
+
+174
+00:09:28,110 --> 00:09:31,160
+Now, I want to close all of this
+
+175
+00:09:31,160 --> 00:09:34,535
+by highlighting a couple
+of real quick things,
+
+176
+00:09:34,535 --> 00:09:36,920
+Number 1, is again the fact
+
+177
+00:09:36,920 --> 00:09:38,990
+that we've got this
+little is a relationship,
+
+178
+00:09:38,990 --> 00:09:41,900
+Number 2, again, the fact
+that everything is virtual,
+
+179
+00:09:41,900 --> 00:09:45,700
+that I can override whatever
+it is that I might want,
+
+180
+00:09:45,700 --> 00:09:49,880
+The last thing that I want to
+highlight is with this str,
+
+181
+00:09:49,880 --> 00:09:55,100
+Now, there's a little
+principle called YAGNI,
+
+182
+00:09:55,100 --> 00:09:59,260
+Y-A-G-N-I; you aren't
+going to need it,
+
+183
+00:09:59,260 --> 00:10:01,340
+I'm a huge believer in
+
+184
+00:10:01,340 --> 00:10:03,410
+the YAGNI principle, you
+aren't going to need it,
+
+185
+00:10:03,410 --> 00:10:06,005
+and I will not add something,
+
+186
+00:10:06,005 --> 00:10:12,140
+I will not add functionality to
+my code until I actually need it,
+
+187
+00:10:12,140 --> 00:10:13,925
+So people will ask
+the question, "Hey,
+
+188
+00:10:13,925 --> 00:10:15,845
+when should I add an str?
+
+189
+00:10:15,845 --> 00:10:18,230
+When should I add an EQ?"
+
+190
+00:10:18,230 --> 00:10:21,055
+The answer is when you need it,
+
+191
+00:10:21,055 --> 00:10:24,109
+So if I'm using a
+framework like Django,
+
+192
+00:10:24,109 --> 00:10:26,060
+or maybe I'm doing some form
+
+193
+00:10:26,060 --> 00:10:28,010
+of like iterative
+development or I'm doing
+
+194
+00:10:28,010 --> 00:10:30,230
+unit testing where I just
+need to be able to real
+
+195
+00:10:30,230 --> 00:10:33,020
+quickly print something out
+and just see what it is,
+
+196
+00:10:33,020 --> 00:10:35,090
+or I'm giving it to a
+framework that needs to be
+
+197
+00:10:35,090 --> 00:10:37,505
+able to real quickly
+convert it to a string,
+
+198
+00:10:37,505 --> 00:10:40,925
+cool, then go ahead
+and implement str,
+
+199
+00:10:40,925 --> 00:10:43,100
+But if you don't need it,
+
+200
+00:10:43,100 --> 00:10:46,910
+there's no reason to implement it,
+
+201
+00:10:46,910 --> 00:10:51,110
+Okay, So that's how you
+can do inheritance,
+
+202
+00:10:51,110 --> 00:10:52,625
+In the next section,
+
+203
+00:10:52,625 --> 00:10:56,449
+I want to turn our attention
+to multiple inheritance
+
+204
+00:10:56,449 --> 00:11:00,560
+and how we could take advantage
+of something called mixins,
+
+205
+00:11:00,560 --> 00:11:03,300
+but more on that in the next module,
+

@@ -1,0 +1,598 @@
+1
+00:00:00,000 --> 00:00:03,435
+>> So as we're preparing
+our data to train models,
+
+2
+00:00:03,435 --> 00:00:05,040
+we do have to make sure that
+
+3
+00:00:05,040 --> 00:00:07,710
+the data we're working with
+doesn't have missing values,
+
+4
+00:00:07,710 --> 00:00:09,240
+which can cause issues and
+
+5
+00:00:09,240 --> 00:00:11,470
+actually when you try to train a
+model might give you an error,
+
+6
+00:00:11,470 --> 00:00:13,500
+and we also need to deal
+with duplicate rows,
+
+7
+00:00:13,500 --> 00:00:14,940
+because duplicate rows can skew
+
+8
+00:00:14,940 --> 00:00:16,845
+the result when you're
+training data models,
+
+9
+00:00:16,845 --> 00:00:18,930
+So now let's take a look at inside
+
+10
+00:00:18,930 --> 00:00:22,050
+our actual code using Python
+and Pandas dataframe methods,
+
+11
+00:00:22,050 --> 00:00:26,055
+how we can handle missing
+values and duplicates,
+
+12
+00:00:26,055 --> 00:00:27,885
+So taking a look here,
+
+13
+00:00:27,885 --> 00:00:29,760
+we're still working
+with Pandas dataframes,
+
+14
+00:00:29,760 --> 00:00:30,900
+So I'm going to import
+
+15
+00:00:30,900 --> 00:00:33,300
+that wonderful Pandas library
+and I'm going to start
+
+16
+00:00:33,300 --> 00:00:37,869
+by loading a nice dataset
+here into our dataframe,
+
+17
+00:00:37,869 --> 00:00:39,570
+which contains all sorts of
+
+18
+00:00:39,570 --> 00:00:42,215
+information about different
+flights with a come in,
+
+19
+00:00:42,215 --> 00:00:44,335
+left, and arrival delay information,
+
+20
+00:00:44,335 --> 00:00:48,035
+Now, this is a very big dataframe
+and I do not want to go reading
+
+21
+00:00:48,035 --> 00:00:49,580
+through every single row to find out
+
+22
+00:00:49,580 --> 00:00:51,965
+which rows might have
+a duplicate value,
+
+23
+00:00:51,965 --> 00:00:56,360
+But fortunately, I can use
+the dataframes info method,
+
+24
+00:00:56,360 --> 00:00:58,160
+What that will do is it will tell me
+
+25
+00:00:58,160 --> 00:00:59,990
+all great information about
+
+26
+00:00:59,990 --> 00:01:02,370
+that dataframe and of
+the data inside it,
+
+27
+00:01:02,370 --> 00:01:04,110
+So it tells me things like, "Hey,
+
+28
+00:01:04,110 --> 00:01:08,610
+you have 300,000 rows inside that
+dataframe across 16 different
+
+29
+00:01:08,610 --> 00:01:13,805
+columns," and it also
+tells me for each column,
+
+30
+00:01:13,805 --> 00:01:17,660
+how many rows contain actual
+values, non null values,
+
+31
+00:01:17,660 --> 00:01:20,210
+So I can see that
+flight date has 300,000
+
+32
+00:01:20,210 --> 00:01:23,155
+rows all containing non null values,
+
+33
+00:01:23,155 --> 00:01:26,320
+Unique carrier, all the rows
+contain non null values,
+
+34
+00:01:26,320 --> 00:01:27,875
+But when you get to tail number,
+
+35
+00:01:27,875 --> 00:01:30,500
+you'll notice only about
+299,000 of the rows
+
+36
+00:01:30,500 --> 00:01:33,050
+contain non nulls or
+for arrival time,
+
+37
+00:01:33,050 --> 00:01:35,140
+But again, there's a
+number of records here,
+
+38
+00:01:35,140 --> 00:01:37,310
+Most of the rows have
+a non-null value,
+
+39
+00:01:37,310 --> 00:01:40,515
+but that must mean that some
+of them do have a null value,
+
+40
+00:01:40,515 --> 00:01:42,800
+So this is a simple way to check
+
+41
+00:01:42,800 --> 00:01:45,335
+and see if you have
+any rows which contain
+
+42
+00:01:45,335 --> 00:01:47,000
+a null value or
+
+43
+00:01:47,000 --> 00:01:48,800
+any particular columns that contain
+
+44
+00:01:48,800 --> 00:01:50,840
+null values inside your dataframe,
+
+45
+00:01:50,840 --> 00:01:52,910
+So now that I've identified I do have
+
+46
+00:01:52,910 --> 00:01:54,890
+rows with missing values, nulls,
+
+47
+00:01:54,890 --> 00:01:56,810
+NANs, these words can be used
+
+48
+00:01:56,810 --> 00:01:59,365
+interchangeably here,
+how do I handle that?
+
+49
+00:01:59,365 --> 00:02:01,415
+So if we go back to our code,
+
+50
+00:02:01,415 --> 00:02:03,065
+once you've identified it,
+
+51
+00:02:03,065 --> 00:02:05,155
+you can use the dropna,
+
+52
+00:02:05,155 --> 00:02:08,540
+What that will do is it will drop
+the rows and missing values,
+
+53
+00:02:08,540 --> 00:02:13,100
+Now, by default, this does not
+modify the delays dataframe itself,
+
+54
+00:02:13,100 --> 00:02:16,450
+Instead, what I'm doing is
+I'm saying drop rows of
+
+55
+00:02:16,450 --> 00:02:18,730
+missing values and take
+
+56
+00:02:18,730 --> 00:02:22,565
+the remaining rows and put
+them into a new dataframe,
+
+57
+00:02:22,565 --> 00:02:26,810
+So if I run this and then I do
+an info on the new dataframe,
+
+58
+00:02:26,810 --> 00:02:29,810
+you'll see it only has 295,000
+
+59
+00:02:29,810 --> 00:02:31,730
+rows left because all the rows
+
+60
+00:02:31,730 --> 00:02:33,395
+with missing values
+have been removed,
+
+61
+00:02:33,395 --> 00:02:36,050
+But you can see that
+every single column,
+
+62
+00:02:36,050 --> 00:02:39,440
+all of the rows
+contain actual values,
+
+63
+00:02:39,440 --> 00:02:42,350
+So I can confirm that I
+have successfully dropped
+
+64
+00:02:42,350 --> 00:02:44,390
+every missing value or every row
+
+65
+00:02:44,390 --> 00:02:47,140
+with a missing value
+from my dataframe,
+
+66
+00:02:47,140 --> 00:02:50,690
+If however, you prefer not
+to create a new dataframe,
+
+67
+00:02:50,690 --> 00:02:53,270
+if you just want to drop
+the missing rows from
+
+68
+00:02:53,270 --> 00:02:56,725
+the existing dataframe
+delays_df, you can do that too,
+
+69
+00:02:56,725 --> 00:03:02,390
+That's supported, There's a parameter
+called inplace equals true,
+
+70
+00:03:02,390 --> 00:03:03,560
+When you set it to true,
+
+71
+00:03:03,560 --> 00:03:07,590
+basically that's saying modify
+the delays dataframe itself,
+
+72
+00:03:07,590 --> 00:03:09,530
+So now what I've done
+is I've actually
+
+73
+00:03:09,530 --> 00:03:11,945
+dropped the missing rows
+from the delays dataframe,
+
+74
+00:03:11,945 --> 00:03:13,370
+So you can see once again,
+
+75
+00:03:13,370 --> 00:03:16,620
+now it only has 295,000 rows,
+
+76
+00:03:16,620 --> 00:03:19,309
+but every single one of the columns,
+
+77
+00:03:19,309 --> 00:03:24,605
+all the values in there have
+no missing values, no nulls,
+
+78
+00:03:24,605 --> 00:03:26,870
+The other scenario we sometimes
+
+79
+00:03:26,870 --> 00:03:28,910
+have to deal with is
+duplicate values,
+
+80
+00:03:28,910 --> 00:03:31,340
+So one of the things you'll find
+
+81
+00:03:31,340 --> 00:03:33,605
+is sometimes when you're
+doing data science set,
+
+82
+00:03:33,605 --> 00:03:35,225
+data may come in from
+
+83
+00:03:35,225 --> 00:03:36,650
+multiple files and then they will be
+
+84
+00:03:36,650 --> 00:03:38,585
+merged together into one dataframe,
+
+85
+00:03:38,585 --> 00:03:41,060
+So as a result, you can end up with
+
+86
+00:03:41,060 --> 00:03:43,280
+some duplicate rows and that
+
+87
+00:03:43,280 --> 00:03:45,760
+can skew results when you
+start doing data science,
+
+88
+00:03:45,760 --> 00:03:47,900
+So one of the things
+we need to do is check
+
+89
+00:03:47,900 --> 00:03:50,450
+if there's duplicates
+and then deal with them,
+
+90
+00:03:50,450 --> 00:03:53,450
+So I'm just going to
+import a very small file
+
+91
+00:03:53,450 --> 00:03:56,240
+here so that you can see
+it has duplicate values,
+
+92
+00:03:56,240 --> 00:03:59,640
+So it has three records from USA,
+
+93
+00:03:59,640 --> 00:04:02,840
+Those are duplicates, they just
+happen to be in the same country,
+
+94
+00:04:02,840 --> 00:04:05,030
+But here, I can see that there's
+
+95
+00:04:05,030 --> 00:04:07,465
+actually two records
+from Dulles Washington,
+
+96
+00:04:07,465 --> 00:04:09,530
+Now, I've deliberately displayed
+
+97
+00:04:09,530 --> 00:04:11,615
+a very small dataframe
+here so you can see that,
+
+98
+00:04:11,615 --> 00:04:15,275
+But what if the dataframe was too
+big to just show on the screen?
+
+99
+00:04:15,275 --> 00:04:17,840
+How could I quickly
+just check and say,
+
+100
+00:04:17,840 --> 00:04:20,615
+"Hey, look at all the rows and
+tell me if there's duplicates",
+
+101
+00:04:20,615 --> 00:04:25,170
+Well, the Pandas dataframe
+has this duplicated method,
+
+102
+00:04:25,170 --> 00:04:27,320
+What that will do is
+it'll return a true or
+
+103
+00:04:27,320 --> 00:04:29,950
+false indicating whether or
+
+104
+00:04:29,950 --> 00:04:32,920
+not a row is a duplicate
+of the previous row,
+
+105
+00:04:32,920 --> 00:04:35,435
+So in this case, the third row,
+
+106
+00:04:35,435 --> 00:04:38,050
+this one here too Dulles Washington,
+
+107
+00:04:38,050 --> 00:04:39,580
+is a duplicate of the previous row,
+
+108
+00:04:39,580 --> 00:04:41,590
+So you can see that the
+one with the index of two,
+
+109
+00:04:41,590 --> 00:04:44,080
+it says, yes, that row
+is in fact a duplicate,
+
+110
+00:04:44,080 --> 00:04:46,630
+It does have to be the
+entire row with a duplicate,
+
+111
+00:04:46,630 --> 00:04:48,040
+Simply having the same value in
+
+112
+00:04:48,040 --> 00:04:50,210
+a column does not make
+it a duplicate row,
+
+113
+00:04:50,210 --> 00:04:52,810
+Once you've identified
+you do have duplicates,
+
+114
+00:04:52,810 --> 00:04:54,175
+if you want to get rid of those,
+
+115
+00:04:54,175 --> 00:04:56,585
+all you need to do is
+call drop_duplicates,
+
+116
+00:04:56,585 --> 00:05:00,430
+I'm using that same parameter
+inplace equals true to say
+
+117
+00:05:00,430 --> 00:05:04,710
+drop the duplicate rows inside
+the airport's dataframe itself,
+
+118
+00:05:04,710 --> 00:05:05,980
+So now when I run,
+
+119
+00:05:05,980 --> 00:05:08,620
+you can actually see I've
+successfully gotten rid of
+
+120
+00:05:08,620 --> 00:05:13,025
+that extra Dulles Washington record,
+
+121
+00:05:13,025 --> 00:05:14,390
+You will notice of course,
+
+122
+00:05:14,390 --> 00:05:17,090
+that index number that can
+cause gaps in your indexes,
+
+123
+00:05:17,090 --> 00:05:19,565
+So just be aware of that as
+well when you're duplicating
+
+124
+00:05:19,565 --> 00:05:22,535
+or dropping duplicate
+rows, So there we have it,
+
+125
+00:05:22,535 --> 00:05:26,134
+We can figure out if we have any
+missing values in our dataframe,
+
+126
+00:05:26,134 --> 00:05:28,145
+get rid of the rows that
+do have missing values,
+
+127
+00:05:28,145 --> 00:05:29,720
+We can determine if we do have
+
+128
+00:05:29,720 --> 00:05:33,250
+any duplicate rows and we can
+get rid of those duplicate rows,
+
+129
+00:05:33,250 --> 00:05:35,600
+So now, you've got your
+data a little more
+
+130
+00:05:35,600 --> 00:05:39,180
+cleaned up and ready for data
+science in training models,
+

@@ -1,0 +1,127 @@
+1
+00:00:00,000 --> 00:00:05,860
+>> Okay, Well, thank you very
+much for making it this far,
+
+2
+00:00:05,860 --> 00:00:08,530
+I do want to apologize for
+
+3
+00:00:08,530 --> 00:00:12,300
+any bad jokes that we
+might have delivered here,
+
+4
+00:00:12,300 --> 00:00:15,730
+But otherwise, hopefully
+you've picked up a couple
+
+5
+00:00:15,730 --> 00:00:19,300
+of new little tips and tricks
+with regards to Python,
+
+6
+00:00:19,300 --> 00:00:21,070
+>> Yeah, Now that you've had
+
+7
+00:00:21,070 --> 00:00:22,900
+a chance again to look
+at some new features,
+
+8
+00:00:22,900 --> 00:00:24,895
+the big thing to do
+is to practice it,
+
+9
+00:00:24,895 --> 00:00:26,680
+otherwise, you're going to
+forget what you've learned,
+
+10
+00:00:26,680 --> 00:00:28,195
+That's the best way to reinforce it,
+
+11
+00:00:28,195 --> 00:00:29,980
+So you want to go out,
+find some quickstarts,
+
+12
+00:00:29,980 --> 00:00:31,930
+read some tutorials, and get
+
+13
+00:00:31,930 --> 00:00:34,030
+in there and try out some of
+the things you just learned,
+
+14
+00:00:34,030 --> 00:00:35,455
+>> Yeah, Right along those lines,
+
+15
+00:00:35,455 --> 00:00:37,150
+we've actually got some quickstarts,
+
+16
+00:00:37,150 --> 00:00:39,730
+and tutorials are ready for you,
+
+17
+00:00:39,730 --> 00:00:43,160
+that if you go check out the
+GitHub repository on there,
+
+18
+00:00:43,160 --> 00:00:44,450
+you're going to notice that we've got
+
+19
+00:00:44,450 --> 00:00:47,930
+all level links into
+both the documentation,
+
+20
+00:00:47,930 --> 00:00:51,785
+as well as to a lot of new
+little Microsoft learn modules,
+
+21
+00:00:51,785 --> 00:00:53,795
+some various quickstarts, and
+
+22
+00:00:53,795 --> 00:00:56,375
+other tutorials that
+you can work through,
+
+23
+00:00:56,375 --> 00:01:01,110
+that are really a great next
+logical step from here,
+
+24
+00:01:01,110 --> 00:01:04,260
+I don't know, maybe we'll be back,
+
+25
+00:01:04,260 --> 00:01:06,195
+maybe we'll do another set of videos,
+
+26
+00:01:06,195 --> 00:01:08,045
+>> We just did more Python beginners,
+
+27
+00:01:08,045 --> 00:01:10,580
+maybe somewhere down the road
+will need even more Python,
+
+28
+00:01:10,580 --> 00:01:13,470
+So meanwhile, happy coding,
+

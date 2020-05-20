@@ -1,0 +1,584 @@
+1
+00:00:01,550 --> 00:00:04,885
+>> So in the last model when
+we're doing calculations,
+
+2
+00:00:04,885 --> 00:00:08,335
+we explored very briefly
+a library called NumPy,
+
+3
+00:00:08,335 --> 00:00:10,390
+Now NumPy, if you've actually started
+
+4
+00:00:10,390 --> 00:00:12,370
+exploring any data
+science courses already,
+
+5
+00:00:12,370 --> 00:00:14,110
+you may have actually
+already encountered NumPy,
+
+6
+00:00:14,110 --> 00:00:16,900
+You'll see a lot of modules
+
+7
+00:00:16,900 --> 00:00:19,920
+talking about using the NumPy
+objects and things like that,
+
+8
+00:00:19,920 --> 00:00:21,850
+because NumPy is actually a library
+
+9
+00:00:21,850 --> 00:00:24,310
+that's used not just for
+calculations in general,
+
+10
+00:00:24,310 --> 00:00:27,910
+but it's also designed for
+doing matrix calculations,
+
+11
+00:00:27,910 --> 00:00:30,070
+So because it can do
+matrix calculations,
+
+12
+00:00:30,070 --> 00:00:31,650
+it needs a way of storing matrices,
+
+13
+00:00:31,650 --> 00:00:35,195
+so it has an ability to store things
+like arrays and such as well,
+
+14
+00:00:35,195 --> 00:00:36,870
+Now, why am I saying all this?
+
+15
+00:00:36,870 --> 00:00:40,930
+Well, because it turns out
+if we take a closer look at
+
+16
+00:00:40,930 --> 00:00:42,980
+the values that we predicted when we
+
+17
+00:00:42,980 --> 00:00:45,980
+trained or when we tested
+specifically our model,
+
+18
+00:00:45,980 --> 00:00:48,415
+you might notice
+something interesting,
+
+19
+00:00:48,415 --> 00:00:51,770
+So when we called predict
+for our model and
+
+20
+00:00:51,770 --> 00:00:53,120
+passed in the test aid and asked it
+
+21
+00:00:53,120 --> 00:00:54,830
+to predicate some predicted values,
+
+22
+00:00:54,830 --> 00:00:58,520
+If you actually look at
+the type of y prediction,
+
+23
+00:00:58,520 --> 00:01:00,050
+you might have noticed something,
+
+24
+00:01:00,050 --> 00:01:02,465
+which is that y prediction,
+
+25
+00:01:02,465 --> 00:01:03,785
+if you look at the datatype,
+
+26
+00:01:03,785 --> 00:01:06,125
+is actually a NumPy array,
+
+27
+00:01:06,125 --> 00:01:08,525
+So it's not actually a DataFrame,
+
+28
+00:01:08,525 --> 00:01:12,435
+whereas y_test is a DataFrame,
+
+29
+00:01:12,435 --> 00:01:14,945
+Now this is significant because
+
+30
+00:01:14,945 --> 00:01:17,975
+so far we've been working
+with Pandas DataFrames,
+
+31
+00:01:17,975 --> 00:01:19,670
+So when we were doing queries,
+
+32
+00:01:19,670 --> 00:01:21,920
+we learned how to query
+a Pandas DataFrame,
+
+33
+00:01:21,920 --> 00:01:25,300
+When we were looking at information,
+
+34
+00:01:25,300 --> 00:01:27,260
+like how do I display
+the first few rows
+
+35
+00:01:27,260 --> 00:01:28,730
+or the last 10 rows and so on,
+
+36
+00:01:28,730 --> 00:01:31,495
+we were doing all these with
+methods on Pandas DataFrames,
+
+37
+00:01:31,495 --> 00:01:33,050
+So it's even possible maybe when
+
+38
+00:01:33,050 --> 00:01:34,895
+you are trying some
+of this out yourself,
+
+39
+00:01:34,895 --> 00:01:36,530
+that you did something like, "Hey,
+
+40
+00:01:36,530 --> 00:01:40,250
+let's do a y_pred duck tail to look
+at the last five rows," and it
+
+41
+00:01:40,250 --> 00:01:44,370
+failed because that method
+doesn't exist on NumPy arrays,
+
+42
+00:01:44,370 --> 00:01:47,720
+That's a method that only
+exist on a DataFrame,
+
+43
+00:01:47,720 --> 00:01:49,730
+So the other thing that might
+
+44
+00:01:49,730 --> 00:01:51,560
+happen is you might be
+doing things like trying
+
+45
+00:01:51,560 --> 00:01:55,430
+to merge two DataFrames together
+or split two DataFrames apart,
+
+46
+00:01:55,430 --> 00:01:57,500
+and you try and do again
+those actions on this
+
+47
+00:01:57,500 --> 00:01:59,900
+y_pred and it'll all
+fail because again,
+
+48
+00:01:59,900 --> 00:02:01,055
+it's not a DataFrame,
+
+49
+00:02:01,055 --> 00:02:02,360
+it's a NumPy array,
+
+50
+00:02:02,360 --> 00:02:04,190
+So let's just talk a little bit
+
+51
+00:02:04,190 --> 00:02:06,345
+more about NumPy and
+explore that some more,
+
+52
+00:02:06,345 --> 00:02:08,110
+So it's a Python package for
+
+53
+00:02:08,110 --> 00:02:11,575
+scientific computing used for
+a lot of matrix calculations,
+
+54
+00:02:11,575 --> 00:02:13,090
+It has an assortment of classes
+
+55
+00:02:13,090 --> 00:02:14,910
+and methods that will help you out,
+
+56
+00:02:14,910 --> 00:02:17,140
+When you're doing Python
+for data science,
+
+57
+00:02:17,140 --> 00:02:19,810
+you'll end up working with
+a mix of pandas objects and
+
+58
+00:02:19,810 --> 00:02:23,310
+methods as well as NumPy
+objects and methods,
+
+59
+00:02:23,310 --> 00:02:26,135
+In NumPy, you have an array,
+
+60
+00:02:26,135 --> 00:02:28,180
+So in pandas, we had a series that's
+
+61
+00:02:28,180 --> 00:02:30,670
+very similar to a
+one-dimensional NumPy array,
+
+62
+00:02:30,670 --> 00:02:32,290
+In fact, if I wanted to clear it,
+
+63
+00:02:32,290 --> 00:02:35,590
+if you would compare the
+code for a numpy array on
+
+64
+00:02:35,590 --> 00:02:39,740
+the left and a panda
+series on the other side,
+
+65
+00:02:39,740 --> 00:02:42,220
+you'll see the code
+is almost identical,
+
+66
+00:02:42,220 --> 00:02:43,720
+Here, I can tell it's an array
+
+67
+00:02:43,720 --> 00:02:45,565
+because I declared
+it as a NumPy array,
+
+68
+00:02:45,565 --> 00:02:47,020
+here I declared as a panda series,
+
+69
+00:02:47,020 --> 00:02:48,760
+but the syntax is the same,
+
+70
+00:02:48,760 --> 00:02:50,930
+If I want to print all the values in
+
+71
+00:02:50,930 --> 00:02:53,805
+the series or a specific
+value in the series,
+
+72
+00:02:53,805 --> 00:02:55,800
+the syntax is again still the same,
+
+73
+00:02:55,800 --> 00:02:59,270
+The big difference is you
+have an implicit index with
+
+74
+00:02:59,270 --> 00:03:03,200
+NumPy arrays and you have an
+explicit index if it's displayed 0,
+
+75
+00:03:03,200 --> 00:03:06,355
+1, 2 when you have a pandas series,
+
+76
+00:03:06,355 --> 00:03:09,300
+and they have different
+functionality,
+
+77
+00:03:09,300 --> 00:03:12,500
+A two-dimensional NumPy array is very
+
+78
+00:03:12,500 --> 00:03:15,535
+similar to a Pandas DataFrame
+in terms its structure,
+
+79
+00:03:15,535 --> 00:03:17,750
+When you're writing
+the code to access it,
+
+80
+00:03:17,750 --> 00:03:20,615
+and to create it, again it's
+going to look very similar,
+
+81
+00:03:20,615 --> 00:03:23,045
+I declare a NumPy array and I
+
+82
+00:03:23,045 --> 00:03:26,035
+specify the values for
+each row and each column,
+
+83
+00:03:26,035 --> 00:03:27,680
+If I want to print all the values,
+
+84
+00:03:27,680 --> 00:03:29,240
+I just pass in the array name,
+
+85
+00:03:29,240 --> 00:03:31,760
+if I want a particular row
+or a particular value,
+
+86
+00:03:31,760 --> 00:03:36,580
+I specify the index column position
+and the index row position;
+
+87
+00:03:36,580 --> 00:03:39,105
+row then column in that order,
+
+88
+00:03:39,105 --> 00:03:41,345
+Then if I've used
+the DataFrame again,
+
+89
+00:03:41,345 --> 00:03:42,500
+pass in the values for
+
+90
+00:03:42,500 --> 00:03:44,875
+the different columns
+and the different rows,
+
+91
+00:03:44,875 --> 00:03:46,350
+print the entire DataFrame,
+
+92
+00:03:46,350 --> 00:03:49,790
+or you can use that
+iloc index location to
+
+93
+00:03:49,790 --> 00:03:53,430
+specify a row and column position
+to request a specific value,
+
+94
+00:03:53,430 --> 00:03:54,905
+So again, at first glance,
+
+95
+00:03:54,905 --> 00:03:57,205
+they seem to be almost identical,
+
+96
+00:03:57,205 --> 00:03:59,090
+but they are different classes
+
+97
+00:03:59,090 --> 00:04:00,965
+and they have different capabilities,
+
+98
+00:04:00,965 --> 00:04:02,390
+So one of the things
+you're going to run
+
+99
+00:04:02,390 --> 00:04:03,770
+into is there's going to be
+
+100
+00:04:03,770 --> 00:04:06,755
+times where you may want the
+functionality of the DataFrame,
+
+101
+00:04:06,755 --> 00:04:08,170
+but it's in a NumPy array,
+
+102
+00:04:08,170 --> 00:04:09,650
+or maybe you want
+the functionality of
+
+103
+00:04:09,650 --> 00:04:11,555
+a NumPy array and
+it's in a DataFrame,
+
+104
+00:04:11,555 --> 00:04:15,340
+or you're trying to merge data
+from two objects together,
+
+105
+00:04:15,340 --> 00:04:18,780
+one is a NumPy array,
+
+106
+00:04:18,780 --> 00:04:21,380
+one's a dataframe, and when
+you try to merge them,
+
+107
+00:04:21,380 --> 00:04:23,450
+you'll get errors saying
+they're different data types,
+
+108
+00:04:23,450 --> 00:04:27,630
+So you might need to move data
+between a numpy and pandas object,
+
+109
+00:04:27,630 --> 00:04:29,840
+I'll give you one example here,
+
+110
+00:04:29,840 --> 00:04:32,570
+In this case, if I wanted
+my predicted values
+
+111
+00:04:32,570 --> 00:04:34,960
+to be in a Pandas DataFrame
+instead of a NumPy array,
+
+112
+00:04:34,960 --> 00:04:38,210
+all I have to do is call
+the DataFrame constructor,
+
+113
+00:04:38,210 --> 00:04:39,660
+pass in the NumPy array,
+
+114
+00:04:39,660 --> 00:04:41,140
+that's an object it will accept,
+
+115
+00:04:41,140 --> 00:04:45,230
+and it will return to me a dataframe
+containing the same values,
+
+116
+00:04:45,230 --> 00:04:49,265
+Now you can see that y_pred
+is still a NumPy array,
+
+117
+00:04:49,265 --> 00:04:52,820
+but my y_pred DataFrame
+is actually a DataFrame,
+
+118
+00:04:52,820 --> 00:04:55,805
+So as you explore that
+world data science,
+
+119
+00:04:55,805 --> 00:04:58,190
+be prepared, this is
+going to happen to you,
+
+120
+00:04:58,190 --> 00:05:00,080
+You will have times
+when something's in
+
+121
+00:05:00,080 --> 00:05:02,180
+a NumPy object and you need it
+
+122
+00:05:02,180 --> 00:05:03,740
+in a Pandas object or something's in
+
+123
+00:05:03,740 --> 00:05:06,170
+a Pandas object and you
+needed a NumPy object,
+
+124
+00:05:06,170 --> 00:05:08,675
+I'm not going to cover every possible
+conversion that might exist,
+
+125
+00:05:08,675 --> 00:05:10,880
+but be prepared for it
+and there's lots of
+
+126
+00:05:10,880 --> 00:05:12,140
+great documentation out to help
+
+127
+00:05:12,140 --> 00:05:14,320
+you when you're looking
+at a specific scenario,
+
+128
+00:05:14,320 --> 00:05:17,610
+Now let's take a look at
+this in the actual code,
+

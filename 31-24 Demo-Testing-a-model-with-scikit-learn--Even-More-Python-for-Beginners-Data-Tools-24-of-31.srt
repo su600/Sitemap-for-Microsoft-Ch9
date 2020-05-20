@@ -1,0 +1,419 @@
+1
+00:00:00,000 --> 00:00:02,610
+>> So when you wrapped
+up with Christopher,
+
+2
+00:00:02,610 --> 00:00:05,445
+you would have successfully
+loaded some data,
+
+3
+00:00:05,445 --> 00:00:07,500
+split it into training and test data,
+
+4
+00:00:07,500 --> 00:00:08,955
+and even trained a model,
+
+5
+00:00:08,955 --> 00:00:10,890
+So now, the next step
+was basically to see if
+
+6
+00:00:10,890 --> 00:00:13,635
+the model could make
+predictions and if so,
+
+7
+00:00:13,635 --> 00:00:15,450
+how accurate are those predictions?
+
+8
+00:00:15,450 --> 00:00:17,340
+So you know, if you
+can trust the results
+
+9
+00:00:17,340 --> 00:00:19,560
+coming from your trained
+model and if it's
+
+10
+00:00:19,560 --> 00:00:21,705
+going to make sense to
+make business decisions
+
+11
+00:00:21,705 --> 00:00:23,730
+or to make changes based
+on the predictions,
+
+12
+00:00:23,730 --> 00:00:25,515
+Can you trust the
+prediction from the model?
+
+13
+00:00:25,515 --> 00:00:27,600
+So we need to be able to test
+
+14
+00:00:27,600 --> 00:00:30,930
+our model and get a sense of how
+accurate the predictions are,
+
+15
+00:00:30,930 --> 00:00:32,670
+So what we're going
+to need first though,
+
+16
+00:00:32,670 --> 00:00:36,270
+is to rerun some of our
+code we saw earlier,
+
+17
+00:00:36,270 --> 00:00:38,254
+So I'm just going to import
+
+18
+00:00:38,254 --> 00:00:40,100
+all the same libraries you were
+
+19
+00:00:40,100 --> 00:00:42,290
+using in the cobe with
+Christopher when you
+
+20
+00:00:42,290 --> 00:00:44,030
+are training your model and I'm just
+
+21
+00:00:44,030 --> 00:00:45,890
+going to rerun the same
+code that you were
+
+22
+00:00:45,890 --> 00:00:49,625
+looking at that was going ahead
+and said loading our dataset,
+
+23
+00:00:49,625 --> 00:00:51,545
+still working with
+the flight dataset,
+
+24
+00:00:51,545 --> 00:00:54,365
+getting rid of the
+rows with null values,
+
+25
+00:00:54,365 --> 00:00:57,950
+splitting up our
+features and our labels,
+
+26
+00:00:57,950 --> 00:00:59,300
+the values we're using to train
+
+27
+00:00:59,300 --> 00:01:00,980
+the model and the
+value we're trying to
+
+28
+00:01:00,980 --> 00:01:04,735
+predict and then splitting that
+into training and test data,
+
+29
+00:01:04,735 --> 00:01:07,050
+So that's all code you've seen before
+
+30
+00:01:07,050 --> 00:01:09,535
+and you finished with that
+one little line of code,
+
+31
+00:01:09,535 --> 00:01:12,980
+It's crazy, you put all this work
+and think data science can be so
+
+32
+00:01:12,980 --> 00:01:14,390
+complicated to train a model and you
+
+33
+00:01:14,390 --> 00:01:17,555
+discover training a model
+is all of one line of code,
+
+34
+00:01:17,555 --> 00:01:21,190
+It's preparing the data that
+really takes up most of your time,
+
+35
+00:01:21,190 --> 00:01:24,020
+Now that we have trained
+the model by calling fit,
+
+36
+00:01:24,020 --> 00:01:25,700
+We have a trained model we call
+
+37
+00:01:25,700 --> 00:01:29,245
+the predict method to
+actually make predictions,
+
+38
+00:01:29,245 --> 00:01:31,445
+Now, if we're going
+to predict values,
+
+39
+00:01:31,445 --> 00:01:34,535
+we need to be able to predict values
+if we want to check accuracy,
+
+40
+00:01:34,535 --> 00:01:37,160
+We'd like to make some predictions
+for values where we actually
+
+41
+00:01:37,160 --> 00:01:40,025
+know what the actual outputs were,
+
+42
+00:01:40,025 --> 00:01:42,320
+That's why you put
+aside that test data,
+
+43
+00:01:42,320 --> 00:01:45,620
+because we have a whole
+bunch of rows inside
+
+44
+00:01:45,620 --> 00:01:49,490
+X test for which we actually
+know what happened,
+
+45
+00:01:49,490 --> 00:01:51,725
+We know how many minutes
+late those flights were,
+
+46
+00:01:51,725 --> 00:01:54,380
+that's the values we
+stored in Y test,
+
+47
+00:01:54,380 --> 00:01:57,235
+So if we pass the values in X test,
+
+48
+00:01:57,235 --> 00:01:59,205
+which are all bunch of flights,
+
+49
+00:01:59,205 --> 00:02:01,935
+where we know what happened
+and we say to the model, "Hey,
+
+50
+00:02:01,935 --> 00:02:05,265
+predict what the flight delay will
+be for each of these records,"
+
+51
+00:02:05,265 --> 00:02:09,125
+Then we can compare the predicted
+values to the actual values,
+
+52
+00:02:09,125 --> 00:02:11,315
+So that's exactly what
+we're going to do,
+
+53
+00:02:11,315 --> 00:02:12,905
+So if we look at our code though,
+
+54
+00:02:12,905 --> 00:02:14,300
+it's really only one line,
+
+55
+00:02:14,300 --> 00:02:16,355
+We're going to call regressor,
+
+56
+00:02:16,355 --> 00:02:17,840
+which if you remember up here,
+
+57
+00:02:17,840 --> 00:02:21,140
+that was what we called our
+linear regression object,
+
+58
+00:02:21,140 --> 00:02:22,675
+which we just trained,
+
+59
+00:02:22,675 --> 00:02:24,710
+Now we can ask that trained model to
+
+60
+00:02:24,710 --> 00:02:27,470
+predict values for each row in
+
+61
+00:02:27,470 --> 00:02:29,510
+X test and we're
+going to put those in
+
+62
+00:02:29,510 --> 00:02:32,200
+a dataframe called Y predict,
+
+63
+00:02:32,200 --> 00:02:34,070
+So we're going to put
+that into Y predict
+
+64
+00:02:34,070 --> 00:02:36,200
+and now it's done and you can print
+
+65
+00:02:36,200 --> 00:02:37,640
+those values out and you can see
+
+66
+00:02:37,640 --> 00:02:41,600
+all the different values
+it's predicted for each row,
+
+67
+00:02:41,600 --> 00:02:46,090
+Then you can compare those
+values to the actual values
+
+68
+00:02:46,090 --> 00:02:47,930
+we had put a side for each of
+
+69
+00:02:47,930 --> 00:02:50,510
+those toast rows when we did
+our splitting ever data,
+
+70
+00:02:50,510 --> 00:02:54,740
+You can see that for the
+first row, the actual delay,
+
+71
+00:02:54,740 --> 00:02:56,555
+it was five minutes
+early that first flight,
+
+72
+00:02:56,555 --> 00:02:59,750
+whereas our model predicted it
+would be about three minutes late,
+
+73
+00:02:59,750 --> 00:03:03,170
+The second row, the actual
+flight was 12 minutes early,
+
+74
+00:03:03,170 --> 00:03:06,170
+and our model predicted was going
+to be about six minutes late,
+
+75
+00:03:06,170 --> 00:03:09,320
+Third row predicted it would be
+
+76
+00:03:09,320 --> 00:03:10,760
+four minutes late when
+
+77
+00:03:10,760 --> 00:03:13,535
+the actual value was
+about nine minutes early,
+
+78
+00:03:13,535 --> 00:03:15,740
+So I can see that my models
+
+79
+00:03:15,740 --> 00:03:18,260
+maybe not quite perfect
+yet and this is where you
+
+80
+00:03:18,260 --> 00:03:20,840
+need to go look into this data
+science courses and you would learn
+
+81
+00:03:20,840 --> 00:03:22,295
+techniques to go back and
+
+82
+00:03:22,295 --> 00:03:24,360
+see how you get better
+accuracy on your model,
+
+83
+00:03:24,360 --> 00:03:27,410
+But we're focusing on the code
+part here and you can see
+
+84
+00:03:27,410 --> 00:03:30,650
+here we have that ability
+to take our test data,
+
+85
+00:03:30,650 --> 00:03:32,390
+pass it to the model,
+
+86
+00:03:32,390 --> 00:03:34,565
+and get back predicted values,
+
+87
+00:03:34,565 --> 00:03:37,385
+What I'll take a look at
+in the next module is
+
+88
+00:03:37,385 --> 00:03:39,740
+some mathematical
+calculations you can do to
+
+89
+00:03:39,740 --> 00:03:41,930
+get a better sense of
+accuracy because reading
+
+90
+00:03:41,930 --> 00:03:45,270
+through all those rows manually
+could be a little clunky,
+

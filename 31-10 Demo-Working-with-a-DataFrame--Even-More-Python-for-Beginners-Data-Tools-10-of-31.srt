@@ -1,0 +1,359 @@
+1
+00:00:00,000 --> 00:00:02,325
+>> Let's see how we can find
+
+2
+00:00:02,325 --> 00:00:05,415
+certain items inside
+of our DataFrame,
+
+3
+00:00:05,415 --> 00:00:06,915
+So just like before,
+
+4
+00:00:06,915 --> 00:00:09,795
+I'm going to go grab
+our pandas library
+
+5
+00:00:09,795 --> 00:00:12,690
+and I'm going to set
+up our DataFrame,
+
+6
+00:00:12,690 --> 00:00:14,070
+You'll notice just like before,
+
+7
+00:00:14,070 --> 00:00:15,645
+we've got name, city, country,
+
+8
+00:00:15,645 --> 00:00:21,030
+and all of the airports
+that are inside of there,
+
+9
+00:00:21,030 --> 00:00:23,684
+If we want to go find
+a specific column,
+
+10
+00:00:23,684 --> 00:00:27,735
+the simplest way to do this
+is just to use that indexer,
+
+11
+00:00:27,735 --> 00:00:30,510
+So you'll notice that I
+pass in the name of city,
+
+12
+00:00:30,510 --> 00:00:34,550
+and that will give me back
+the city just like that,
+
+13
+00:00:34,550 --> 00:00:36,530
+If I specify country,
+
+14
+00:00:36,530 --> 00:00:38,790
+then it will, of course,
+
+15
+00:00:38,790 --> 00:00:40,590
+give me back the country,
+
+16
+00:00:40,590 --> 00:00:44,300
+It's always giving me
+back that index as well,
+
+17
+00:00:44,300 --> 00:00:45,725
+which honestly I like,
+
+18
+00:00:45,725 --> 00:00:51,130
+So that way I can always find a
+specific row if I need to later,
+
+19
+00:00:51,130 --> 00:00:54,050
+If I want to go grab
+particular items,
+
+20
+00:00:54,050 --> 00:00:56,840
+then what I'm going to
+do is put that inside
+
+21
+00:00:56,840 --> 00:01:00,020
+of a list as that parameter,
+
+22
+00:01:00,020 --> 00:01:04,975
+so that's going to give me back
+my name and my country here,
+
+23
+00:01:04,975 --> 00:01:07,310
+You'll notice one more time with
+
+24
+00:01:07,310 --> 00:01:11,675
+our notebook the fact that
+if I just execute the code,
+
+25
+00:01:11,675 --> 00:01:15,460
+then it will just print
+that right out for me,
+
+26
+00:01:15,460 --> 00:01:19,885
+but again, one of my favorite
+little things with notebooks,
+
+27
+00:01:19,885 --> 00:01:24,540
+If you happen to know the index
+location, then you can do that,
+
+28
+00:01:24,540 --> 00:01:27,110
+So to get whatever the first cell is,
+
+29
+00:01:27,110 --> 00:01:28,445
+I can do that with 0 ,
+
+30
+00:01:28,445 --> 00:01:34,045
+0 to go get it over at 2,2
+then I can do it that way,
+
+31
+00:01:34,045 --> 00:01:39,080
+Now most commonly, the way
+that you're going to be using
+
+32
+00:01:39,080 --> 00:01:41,450
+this index location is to go
+
+33
+00:01:41,450 --> 00:01:44,945
+grab multiple columns
+or multiple rows,
+
+34
+00:01:44,945 --> 00:01:48,980
+So if I want to specify a
+range, then I can use that : ,
+
+35
+00:01:48,980 --> 00:01:55,280
+: that's indicating that I
+want all rows, all columns,
+
+36
+00:01:55,280 --> 00:01:57,315
+Boom, there we go,
+
+37
+00:01:57,315 --> 00:02:00,995
+If I want to indicate
+the start and the end,
+
+38
+00:02:00,995 --> 00:02:03,305
+then I can do that by using,
+
+39
+00:02:03,305 --> 00:02:05,555
+in my case, zero and two,
+
+40
+00:02:05,555 --> 00:02:08,975
+This will give me back
+the first two rows,
+
+41
+00:02:08,975 --> 00:02:13,100
+or in turn, the first two columns,
+
+42
+00:02:13,100 --> 00:02:14,825
+if I so desire,
+
+43
+00:02:14,825 --> 00:02:20,210
+If I maybe you want to go grab
+the second and the third,
+
+44
+00:02:20,210 --> 00:02:22,460
+make sure that you
+indicate the ending index,
+
+45
+00:02:22,460 --> 00:02:26,315
+Remember, it's going to go all
+the way up to, but not including,
+
+46
+00:02:26,315 --> 00:02:30,560
+So now what I'm going to get
+back is one and two here,
+
+47
+00:02:30,560 --> 00:02:33,765
+which is what we would've expected,
+
+48
+00:02:33,765 --> 00:02:36,410
+So it behaves just
+like a range for say,
+
+49
+00:02:36,410 --> 00:02:40,235
+an array or for a list,
+
+50
+00:02:40,235 --> 00:02:43,900
+If you want to specify
+individual items,
+
+51
+00:02:43,900 --> 00:02:49,070
+maybe I want the first and
+the third back column wise,
+
+52
+00:02:49,070 --> 00:02:50,570
+then I can do that by
+
+53
+00:02:50,570 --> 00:02:53,705
+specifying that little list
+that you see right there,
+
+54
+00:02:53,705 --> 00:02:59,240
+So 0,2 this is going to
+give us back columns 0 ,
+
+55
+00:02:59,240 --> 00:03:01,625
+2 or the first and the third,
+
+56
+00:03:01,625 --> 00:03:05,630
+So when I run this, it's going to
+give me back name and country,
+
+57
+00:03:05,630 --> 00:03:11,020
+If I sneak all the way back up
+to the top here, there we go,
+
+58
+00:03:11,020 --> 00:03:14,390
+We'll notice name and country
+is our first and third,
+
+59
+00:03:14,390 --> 00:03:17,935
+so that was exactly what we got back,
+
+60
+00:03:17,935 --> 00:03:20,220
+If you want to do that same thing,
+
+61
+00:03:20,220 --> 00:03:21,995
+but you want to do it by name,
+
+62
+00:03:21,995 --> 00:03:23,720
+then you could use location,
+
+63
+00:03:23,720 --> 00:03:27,100
+Again, that second parameter
+is going to be the column,
+
+64
+00:03:27,100 --> 00:03:33,255
+so name and country is going to
+give me back name and country,
+
+65
+00:03:33,255 --> 00:03:37,320
+Just like that, we get
+the same things,Cool,
+
+66
+00:03:37,320 --> 00:03:42,180
+So that's a real quick primer,
+
+67
+00:03:42,180 --> 00:03:47,705
+real quick starting point for going
+in and working with our data,
+
+68
+00:03:47,705 --> 00:03:49,130
+One thing that you are going to
+
+69
+00:03:49,130 --> 00:03:50,450
+notice whenever you're working with
+
+70
+00:03:50,450 --> 00:03:54,350
+a DataFrame is that we need
+the ability to quickly go in,
+
+71
+00:03:54,350 --> 00:03:57,520
+find rows, find columns, etc,
+
+72
+00:03:57,520 --> 00:03:59,405
+Like I mentioned at the outset,
+
+73
+00:03:59,405 --> 00:04:01,685
+there's a lot of different
+ways that we can do this,
+
+74
+00:04:01,685 --> 00:04:04,630
+This is a couple of very common
+ways that you can do it,
+
+75
+00:04:04,630 --> 00:04:06,920
+Again, we've linked
+to the docs inside of
+
+76
+00:04:06,920 --> 00:04:11,230
+our GitHub page so you could
+go off and explore from there,
+
+77
+00:04:11,230 --> 00:04:13,845
+but there's still
+more with DataFrames,
+
+78
+00:04:13,845 --> 00:04:17,730
+That's what we're going to take
+a look at in the next video,
+

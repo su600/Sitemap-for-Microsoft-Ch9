@@ -1,0 +1,347 @@
+1
+00:00:01,250 --> 00:00:03,870
+>> When you're working with data,
+
+2
+00:00:03,870 --> 00:00:07,440
+you're typically going to be
+importing this in from a database,
+
+3
+00:00:07,440 --> 00:00:11,055
+from a CSV file, from somewhere else,
+
+4
+00:00:11,055 --> 00:00:13,260
+When you're pulling that data in,
+
+5
+00:00:13,260 --> 00:00:14,970
+the first thing you'll
+typically want to
+
+6
+00:00:14,970 --> 00:00:17,775
+do is figure out what
+it is that you have,
+
+7
+00:00:17,775 --> 00:00:20,715
+because real-world data is messy,
+
+8
+00:00:20,715 --> 00:00:22,230
+There's going to be errors,
+
+9
+00:00:22,230 --> 00:00:24,375
+there's going to be inconsistencies,
+
+10
+00:00:24,375 --> 00:00:27,324
+there's going to be
+missing values, etc,
+
+11
+00:00:27,324 --> 00:00:31,325
+that before you begin performing
+any operations on the data,
+
+12
+00:00:31,325 --> 00:00:35,000
+you first need to figure out
+what in the world you've got,
+
+13
+00:00:35,000 --> 00:00:36,830
+So fortunately, what we're
+
+14
+00:00:36,830 --> 00:00:38,660
+going to notice with the
+DataFrame is that we
+
+15
+00:00:38,660 --> 00:00:42,560
+have a lot of different ways
+that we can explore our data,
+
+16
+00:00:42,560 --> 00:00:45,080
+Now, like we did in the prior module,
+
+17
+00:00:45,080 --> 00:00:50,390
+we are going to hard-code in what
+our DataFrame is going to be,
+
+18
+00:00:50,390 --> 00:00:52,480
+Just to make things
+a little bit easier,
+
+19
+00:00:52,480 --> 00:00:55,370
+Don't worry, However, we
+are going to show off
+
+20
+00:00:55,370 --> 00:00:58,865
+the code to actually
+load this up from a CSV,
+
+21
+00:00:58,865 --> 00:01:03,840
+So how can we go in and explore this?
+
+22
+00:01:03,840 --> 00:01:07,010
+Again, there's a whole host of
+different ways that we can do this,
+
+23
+00:01:07,010 --> 00:01:11,370
+A couple of the most
+common are head and tail,
+
+24
+00:01:11,370 --> 00:01:14,150
+Where with head, we can
+indicate the number of
+
+25
+00:01:14,150 --> 00:01:17,540
+rows from the top that we
+want to be able to see,
+
+26
+00:01:17,540 --> 00:01:19,700
+and with tail, as you might expect,
+
+27
+00:01:19,700 --> 00:01:22,250
+we can see the number of rows from
+
+28
+00:01:22,250 --> 00:01:24,950
+the bottom that we want
+to be able to see,
+
+29
+00:01:24,950 --> 00:01:28,220
+So head 3 is going to give us
+the first three rows, tail 3,
+
+30
+00:01:28,220 --> 00:01:32,260
+of course, is going to give
+us the last three rows,
+
+31
+00:01:32,260 --> 00:01:35,900
+We can also find out
+what the shape is,
+
+32
+00:01:35,900 --> 00:01:39,010
+or basically, what
+are the dimensions,
+
+33
+00:01:39,010 --> 00:01:40,445
+Or in other words,
+
+34
+00:01:40,445 --> 00:01:44,255
+it will give us the number of
+rows and the number of columns,
+
+35
+00:01:44,255 --> 00:01:47,150
+So if we take a look
+at the output here,
+
+36
+00:01:47,150 --> 00:01:51,140
+what we're going to notice is
+seven for the number of rows,
+
+37
+00:01:51,140 --> 00:01:53,530
+and then three for the
+number of columns,
+
+38
+00:01:53,530 --> 00:01:55,040
+Now, you might be thinking,
+
+39
+00:01:55,040 --> 00:01:56,330
+"Well, wait a minute, Christopher,
+
+40
+00:01:56,330 --> 00:01:59,990
+I'm counting four columns
+because I see index,
+
+41
+00:01:59,990 --> 00:02:03,065
+and I see name, city, and country,"
+
+42
+00:02:03,065 --> 00:02:06,680
+You're right, What the three
+is actually indicating to us,
+
+43
+00:02:06,680 --> 00:02:08,870
+because there will
+always be an index,
+
+44
+00:02:08,870 --> 00:02:11,300
+is the number of data
+columns that we have,
+
+45
+00:02:11,300 --> 00:02:13,550
+So three is the number
+of data columns,
+
+46
+00:02:13,550 --> 00:02:15,800
+seven is going to be
+the number of rows,
+
+47
+00:02:15,800 --> 00:02:17,460
+zero through six, of course,
+
+48
+00:02:17,460 --> 00:02:18,645
+that's going to be seven,
+
+49
+00:02:18,645 --> 00:02:21,235
+so that's the shape that
+we're getting back,
+
+50
+00:02:21,235 --> 00:02:24,975
+But shape is really
+a high level beck,
+
+51
+00:02:24,975 --> 00:02:28,140
+It's nice to know what it
+is that we're dealing with,
+
+52
+00:02:28,140 --> 00:02:29,330
+but sometimes we need
+
+53
+00:02:29,330 --> 00:02:33,935
+a little bit lower level
+of information here,
+
+54
+00:02:33,935 --> 00:02:37,235
+and this is where
+info comes into play,
+
+55
+00:02:37,235 --> 00:02:41,030
+With info, we can get an
+awful lot of what's going
+
+56
+00:02:41,030 --> 00:02:44,855
+on inside of our data,
+
+57
+00:02:44,855 --> 00:02:47,375
+So what we're going to
+see when we run info
+
+58
+00:02:47,375 --> 00:02:50,060
+is the number of rows or entries,
+
+59
+00:02:50,060 --> 00:02:54,275
+We're going to see the index range,
+
+60
+00:02:54,275 --> 00:02:57,305
+so 0-6 in our case here,
+
+61
+00:02:57,305 --> 00:02:59,765
+we're going to see the
+number of columns,
+
+62
+00:02:59,765 --> 00:03:02,150
+we're going to see the information
+
+63
+00:03:02,150 --> 00:03:04,850
+about each column
+including the names,
+
+64
+00:03:04,850 --> 00:03:09,710
+whether or not any of them
+are null or not null,
+
+65
+00:03:09,710 --> 00:03:13,040
+So it's going to show
+us the non-null values,
+
+66
+00:03:13,040 --> 00:03:14,660
+so you can extrapolate there
+
+67
+00:03:14,660 --> 00:03:17,015
+how many null values
+that you might have,
+
+68
+00:03:17,015 --> 00:03:20,045
+and then it's also going
+to indicate the datatypes,
+
+69
+00:03:20,045 --> 00:03:26,545
+Keep in mind that a string is
+an object in these palettes,
+
+70
+00:03:26,545 --> 00:03:29,085
+So by using head,
+
+71
+00:03:29,085 --> 00:03:32,015
+tail, size, and info,
+
+72
+00:03:32,015 --> 00:03:34,910
+I can get a little bit of
+information about what's
+
+73
+00:03:34,910 --> 00:03:38,015
+going on inside of my DataFrame,
+
+74
+00:03:38,015 --> 00:03:40,070
+Let's now turn our attention to
+
+75
+00:03:40,070 --> 00:03:44,040
+the code that actually makes
+all of this magic happen,
+

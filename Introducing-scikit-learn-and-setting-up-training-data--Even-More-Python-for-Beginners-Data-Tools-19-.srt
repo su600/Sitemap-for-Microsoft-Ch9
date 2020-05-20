@@ -1,0 +1,1032 @@
+1
+00:00:01,340 --> 00:00:05,895
+>> We've seen a lot of different
+ways that we can manipulate data,
+
+2
+00:00:05,895 --> 00:00:09,135
+Now, one of the biggest tasks
+that we're going to have
+
+3
+00:00:09,135 --> 00:00:12,690
+is to get some insights
+from that data,
+
+4
+00:00:12,690 --> 00:00:14,685
+that we're going to
+want to be able to
+
+5
+00:00:14,685 --> 00:00:17,505
+try and predict certain behaviors,
+
+6
+00:00:17,505 --> 00:00:20,310
+try and predict certain values,
+
+7
+00:00:20,310 --> 00:00:22,020
+Now in order to do that,
+
+8
+00:00:22,020 --> 00:00:24,300
+what we'll need is to split
+
+9
+00:00:24,300 --> 00:00:26,940
+up our data that we'll
+need to be able to say,
+
+10
+00:00:26,940 --> 00:00:30,210
+"Hey, these are all of
+the things that are
+
+11
+00:00:30,210 --> 00:00:33,855
+going to impact some
+particular value,"
+
+12
+00:00:33,855 --> 00:00:35,970
+Or to put this another way to give
+
+13
+00:00:35,970 --> 00:00:38,505
+you a couple of different examples
+
+14
+00:00:38,505 --> 00:00:43,815
+or scenarios that given
+X data predict y value,
+
+15
+00:00:43,815 --> 00:00:46,700
+So for example, given
+a particular customer,
+
+16
+00:00:46,700 --> 00:00:48,245
+I want to be able to predict
+
+17
+00:00:48,245 --> 00:00:50,200
+whether or not they're
+going to buy your product,
+
+18
+00:00:50,200 --> 00:00:52,745
+or given a shopping cart,
+
+19
+00:00:52,745 --> 00:00:54,935
+I want to be able to offer up
+
+20
+00:00:54,935 --> 00:00:57,970
+some other items of that
+customer might be interested in,
+
+21
+00:00:57,970 --> 00:00:59,720
+If you've ever shopped online,
+
+22
+00:00:59,720 --> 00:01:01,790
+you've seen this behavior
+where you've seen
+
+23
+00:01:01,790 --> 00:01:04,780
+that little spot that says
+other customers have bought,
+
+24
+00:01:04,780 --> 00:01:06,920
+This is exactly what's
+happening behind
+
+25
+00:01:06,920 --> 00:01:10,535
+the scenes is it's a little
+bit of machine learning,
+
+26
+00:01:10,535 --> 00:01:13,595
+Along those lines with our data,
+
+27
+00:01:13,595 --> 00:01:15,555
+since we've been
+looking at Flight Data,
+
+28
+00:01:15,555 --> 00:01:17,930
+that what we want to
+be able to do is say,
+
+29
+00:01:17,930 --> 00:01:20,090
+given a particular flight,
+
+30
+00:01:20,090 --> 00:01:24,860
+predict the time that
+it's going to be delayed,
+
+31
+00:01:24,860 --> 00:01:28,080
+whether or not it's
+going to be early, etc,
+
+32
+00:01:28,080 --> 00:01:29,930
+But in order to do that,
+
+33
+00:01:29,930 --> 00:01:31,820
+what we're going to
+need to do is to take
+
+34
+00:01:31,820 --> 00:01:34,130
+our data and split it up,
+
+35
+00:01:34,130 --> 00:01:39,560
+Now we're going to need to
+create two different DataFrames,
+
+36
+00:01:39,560 --> 00:01:43,575
+There we're going to want to
+set up the labeled DataFrame,
+
+37
+00:01:43,575 --> 00:01:46,610
+Basically, what we want
+to predict in our case,
+
+38
+00:01:46,610 --> 00:01:49,010
+that's going to be how late or
+
+39
+00:01:49,010 --> 00:01:51,530
+how early is a particular
+flight going to
+
+40
+00:01:51,530 --> 00:01:57,695
+be into a DataFrame
+commonly labeled as y,
+
+41
+00:01:57,695 --> 00:02:00,535
+and in particular a y?
+
+42
+00:02:00,535 --> 00:02:03,205
+I know, I've said previously,
+
+43
+00:02:03,205 --> 00:02:04,835
+my challenges with
+
+44
+00:02:04,835 --> 00:02:07,640
+single letter variable
+names and things like that,
+
+45
+00:02:07,640 --> 00:02:10,550
+This is convention,
+so I do follow along
+
+46
+00:02:10,550 --> 00:02:14,320
+with it even though
+it pains me inside,
+
+47
+00:02:14,360 --> 00:02:20,170
+So the value that we're going
+to predict is going to be in y,
+
+48
+00:02:20,170 --> 00:02:21,380
+So in our case,
+
+49
+00:02:21,380 --> 00:02:25,280
+the value that we want to predict
+is the minutes early or minutes
+
+50
+00:02:25,280 --> 00:02:27,320
+late that it's going to wind up being
+
+51
+00:02:27,320 --> 00:02:29,795
+at that particular flight
+would wind up being,
+
+52
+00:02:29,795 --> 00:02:32,390
+The data that's going
+to influence this,
+
+53
+00:02:32,390 --> 00:02:36,215
+and this is going to include
+things like the time of departure,
+
+54
+00:02:36,215 --> 00:02:37,805
+the time of arrival,
+
+55
+00:02:37,805 --> 00:02:42,305
+the airport that it took off from,
+
+56
+00:02:42,305 --> 00:02:45,295
+the airport that it
+was going to, etc,
+
+57
+00:02:45,295 --> 00:02:48,695
+All of that information
+is going to make up
+
+58
+00:02:48,695 --> 00:02:53,170
+the features or what's going
+to influence the label,
+
+59
+00:02:53,170 --> 00:02:54,695
+So if you stop and think about it,
+
+60
+00:02:54,695 --> 00:02:56,300
+the airport that were coming from,
+
+61
+00:02:56,300 --> 00:02:58,490
+the airport that we're going
+to when you're talking about
+
+62
+00:02:58,490 --> 00:03:00,710
+things like weather,
+air traffic control,
+
+63
+00:03:00,710 --> 00:03:04,940
+etc, all of those different things
+are going to have an impact on
+
+64
+00:03:04,940 --> 00:03:09,525
+whether or not a flight is
+early or a flight is late,
+
+65
+00:03:09,525 --> 00:03:11,660
+So we're going to take
+all of that information,
+
+66
+00:03:11,660 --> 00:03:14,600
+put that off somewhere else
+into a different DataFrame,
+
+67
+00:03:14,600 --> 00:03:19,465
+This DataFrame is going
+to be labeled as X,
+
+68
+00:03:19,465 --> 00:03:22,370
+So if we wanted to take a
+look at a little bit more
+
+69
+00:03:22,370 --> 00:03:24,970
+of a concrete example here,
+
+70
+00:03:24,970 --> 00:03:28,340
+What we're going to notice
+is we've got the distances,
+
+71
+00:03:28,340 --> 00:03:30,260
+we've got the elapsed time,
+
+72
+00:03:30,260 --> 00:03:33,289
+and then we've got the arrival delay,
+
+73
+00:03:33,289 --> 00:03:35,540
+So seven minutes, four minutes early,
+
+74
+00:03:35,540 --> 00:03:39,365
+five minutes, etc,
+the whole way down,
+
+75
+00:03:39,365 --> 00:03:43,580
+what we want to be able to predict
+or our label is going to be
+
+76
+00:03:43,580 --> 00:03:49,420
+that delay and everything else
+is going to influence it,
+
+77
+00:03:49,420 --> 00:03:52,264
+So if we remember from
+what we had before,
+
+78
+00:03:52,264 --> 00:03:56,630
+using that location
+indexer we're able to
+
+79
+00:03:56,630 --> 00:04:01,405
+go get all of the rows for
+that arrival delay column,
+
+80
+00:04:01,405 --> 00:04:04,670
+and then in turn we
+can go grab all of
+
+81
+00:04:04,670 --> 00:04:07,910
+the features by just
+grabbing everything else,
+
+82
+00:04:07,910 --> 00:04:11,195
+We could either list them
+off like we have here
+
+83
+00:04:11,195 --> 00:04:14,870
+or maybe if it was basically
+everything about that last column,
+
+84
+00:04:14,870 --> 00:04:19,370
+we could've done ahead and set-up
+a range where we indicated,
+
+85
+00:04:19,370 --> 00:04:22,070
+"Hey, go zero to
+whatever it might be,"
+
+86
+00:04:22,070 --> 00:04:24,680
+The end result is going
+to wind up being,
+
+87
+00:04:24,680 --> 00:04:28,730
+that will have two different
+DataFrames, X and y,
+
+88
+00:04:28,730 --> 00:04:33,440
+where X is going to be all of
+our features and y is going to
+
+89
+00:04:33,440 --> 00:04:38,590
+be the label that we're going
+to be trying to predict,
+
+90
+00:04:38,590 --> 00:04:40,100
+You're also going to notice that
+
+91
+00:04:40,100 --> 00:04:42,290
+the index is going to
+come along for the ride,
+
+92
+00:04:42,290 --> 00:04:45,995
+That gives us the ability
+and also gives our
+
+93
+00:04:45,995 --> 00:04:50,290
+trainer the ability to
+align everything properly,
+
+94
+00:04:50,290 --> 00:04:53,960
+So that way we know which pieces of
+
+95
+00:04:53,960 --> 00:04:59,440
+data are going to be correlated
+to which eventual results here,
+
+96
+00:04:59,440 --> 00:05:01,900
+Now, the other thing
+that we're typically
+
+97
+00:05:01,900 --> 00:05:04,300
+going to have to do is to
+
+98
+00:05:04,300 --> 00:05:09,590
+split up our data into training
+data and testing data,
+
+99
+00:05:09,590 --> 00:05:13,780
+When we think about
+trying to train up
+
+100
+00:05:13,780 --> 00:05:18,475
+a machine learning model or
+really train anything up,
+
+101
+00:05:18,475 --> 00:05:21,520
+What we're going to need to do
+is feed it some information,
+
+102
+00:05:21,520 --> 00:05:23,185
+"Hey, this is what's going on,"
+
+103
+00:05:23,185 --> 00:05:28,959
+We're going to make some assumptions
+based on that information,
+
+104
+00:05:28,959 --> 00:05:31,975
+and then we're going to want to
+be able to test our assumptions,
+
+105
+00:05:31,975 --> 00:05:34,870
+This is how we learn,
+
+106
+00:05:34,870 --> 00:05:36,970
+That we'll learn
+something and then we'll
+
+107
+00:05:36,970 --> 00:05:39,100
+go off and we'll test that
+behavior and we'll see,
+
+108
+00:05:39,100 --> 00:05:40,480
+"Hey, is this in fact the case?
+
+109
+00:05:40,480 --> 00:05:41,795
+Is this not the case?"
+
+110
+00:05:41,795 --> 00:05:44,045
+That's exactly what we're going to do
+
+111
+00:05:44,045 --> 00:05:46,730
+when we're setting up our
+machine learning model,
+
+112
+00:05:46,730 --> 00:05:49,370
+Now, we're going to say, "Hey,
+
+113
+00:05:49,370 --> 00:05:53,825
+this is the information that I
+want you to use to train yourself,
+
+114
+00:05:53,825 --> 00:05:56,210
+and then this is the
+information that I
+
+115
+00:05:56,210 --> 00:05:58,625
+want you to use to confirm that
+
+116
+00:05:58,625 --> 00:06:00,950
+all of those assumptions
+that you've now
+
+117
+00:06:00,950 --> 00:06:04,164
+generated are in fact correct,"
+
+118
+00:06:04,164 --> 00:06:08,200
+Typically, you're only going
+to have one set of data,
+
+119
+00:06:08,200 --> 00:06:11,630
+So what you'll do is take
+that one set of data,
+
+120
+00:06:11,630 --> 00:06:13,310
+take some of the rows,
+
+121
+00:06:13,310 --> 00:06:15,020
+turn that into the training data,
+
+122
+00:06:15,020 --> 00:06:19,465
+and then some of the rows and
+turn that into the testing data,
+
+123
+00:06:19,465 --> 00:06:22,730
+So you're going to notice that
+we've got our DataFrame X,
+
+124
+00:06:22,730 --> 00:06:26,000
+What we're going to do is we're
+going to split that up into
+
+125
+00:06:26,000 --> 00:06:30,185
+some training data and
+into some testing data,
+
+126
+00:06:30,185 --> 00:06:32,905
+I want you to notice
+the indexes here,
+
+127
+00:06:32,905 --> 00:06:35,660
+You're going to notice
+that on the training side,
+
+128
+00:06:35,660 --> 00:06:39,110
+we're going to have zero and two,
+
+129
+00:06:39,110 --> 00:06:43,280
+whereas on the test side we're
+going to have one and 17,
+
+130
+00:06:43,280 --> 00:06:46,325
+Everything else that's
+there is irrelevant,
+
+131
+00:06:46,325 --> 00:06:48,350
+The takeaway that I
+want you to get out of
+
+132
+00:06:48,350 --> 00:06:51,125
+this is we didn't just simply
+say, "All right, well,
+
+133
+00:06:51,125 --> 00:06:54,245
+the top 70 percent that's where
+we're going to use to train,
+
+134
+00:06:54,245 --> 00:06:58,100
+and then the bottom 30 percent
+is what we're going to
+
+135
+00:06:58,100 --> 00:06:59,510
+use to validate all of
+
+136
+00:06:59,510 --> 00:07:02,210
+those assumptions that
+we're going to use to test,
+
+137
+00:07:02,210 --> 00:07:04,685
+That's not really going to give us
+
+138
+00:07:04,685 --> 00:07:08,960
+good results because
+information could be skewed,
+
+139
+00:07:08,960 --> 00:07:11,765
+It's possible depending
+on our data set,
+
+140
+00:07:11,765 --> 00:07:13,775
+where it is that we've
+loaded it in from,
+
+141
+00:07:13,775 --> 00:07:15,980
+that maybe there was a
+sort that took place,
+
+142
+00:07:15,980 --> 00:07:17,285
+So maybe for example,
+
+143
+00:07:17,285 --> 00:07:21,830
+everything is sorted based
+on the destination airport,
+
+144
+00:07:21,830 --> 00:07:23,720
+So now what I'm going
+to wind up with down at
+
+145
+00:07:23,720 --> 00:07:26,705
+the very bottom is everything
+that's landing in,
+
+146
+00:07:26,705 --> 00:07:29,750
+I'm trying to think of an airport
+code that starts like a Z,
+
+147
+00:07:29,750 --> 00:07:31,130
+So whatever that might be,
+
+148
+00:07:31,130 --> 00:07:33,470
+I'm just going to use SEA,
+
+149
+00:07:33,470 --> 00:07:35,810
+Sea-Tac just because
+S is a little later,
+
+150
+00:07:35,810 --> 00:07:39,695
+So let's say that I've got
+Seattle down to the very bottom,
+
+151
+00:07:39,695 --> 00:07:44,645
+So now that winds up
+becoming my testing data,
+
+152
+00:07:44,645 --> 00:07:46,880
+So all of the assumptions are
+
+153
+00:07:46,880 --> 00:07:49,250
+going to be based on
+everything about Seattle,
+
+154
+00:07:49,250 --> 00:07:50,720
+and then I'm going to wind up testing
+
+155
+00:07:50,720 --> 00:07:53,180
+those assumptions against Seattle,
+
+156
+00:07:53,180 --> 00:07:55,040
+You can easily see, "Hey,
+
+157
+00:07:55,040 --> 00:07:58,385
+that's not really a
+good way to do things,"
+
+158
+00:07:58,385 --> 00:08:01,700
+So instead what we want to do
+is we want to randomize this,
+
+159
+00:08:01,700 --> 00:08:03,620
+So that way we're not going to be
+
+160
+00:08:03,620 --> 00:08:07,590
+biasing our training and our testing,
+
+161
+00:08:07,590 --> 00:08:10,760
+So when we go in and we
+look at our results,
+
+162
+00:08:10,760 --> 00:08:13,340
+we look at our accuracy,
+we're going to know,
+
+163
+00:08:13,340 --> 00:08:16,505
+"Oh, okay, we've done
+a good job here,
+
+164
+00:08:16,505 --> 00:08:21,110
+We're testing this and training
+this on some nice random values,"
+
+165
+00:08:21,110 --> 00:08:23,305
+That's exactly what's happening here,
+
+166
+00:08:23,305 --> 00:08:25,785
+So as a general rule,
+
+167
+00:08:25,785 --> 00:08:28,590
+train on 70 percent of
+
+168
+00:08:28,590 --> 00:08:32,265
+your data and test on 30
+percent of your data,
+
+169
+00:08:32,265 --> 00:08:33,850
+Somewhere in that ballpark,
+
+170
+00:08:33,850 --> 00:08:36,350
+It's a general nice starting point,
+
+171
+00:08:36,350 --> 00:08:41,435
+It's a nice general rule of
+thumb that you can follow,
+
+172
+00:08:41,435 --> 00:08:44,270
+Now, there is a nice little library
+
+173
+00:08:44,270 --> 00:08:47,075
+that's available to us
+called Scikit-learn,
+
+174
+00:08:47,075 --> 00:08:51,050
+That does an awful lot of really
+nice things in this space,
+
+175
+00:08:51,050 --> 00:08:56,635
+One of the things that it does is
+it offers us a train_test_split,
+
+176
+00:08:56,635 --> 00:08:59,420
+What's great about this, is
+we can actually just give
+
+177
+00:08:59,420 --> 00:09:02,200
+it our X DataFrame and y DataFrame,
+
+178
+00:09:02,200 --> 00:09:04,810
+So our features and our label,
+
+179
+00:09:04,810 --> 00:09:09,110
+and then it will give us back
+everything that we might want,
+
+180
+00:09:09,110 --> 00:09:11,700
+So we pull that little function in,
+
+181
+00:09:11,700 --> 00:09:14,220
+then we go ahead and call it,
+
+182
+00:09:14,220 --> 00:09:17,330
+What you're going to notice is
+that it will give us back that
+
+183
+00:09:17,330 --> 00:09:20,820
+X_train, X_test, y_train, y_test,
+
+184
+00:09:20,820 --> 00:09:22,890
+where X_train is going
+
+185
+00:09:22,890 --> 00:09:25,135
+to be all the features
+we're going to train on,
+
+186
+00:09:25,135 --> 00:09:27,320
+X-test is what we're going to use to
+
+187
+00:09:27,320 --> 00:09:29,960
+test all of those assumptions
+that are generated,
+
+188
+00:09:29,960 --> 00:09:33,260
+and then the y_train and
+y_test is going to do
+
+189
+00:09:33,260 --> 00:09:35,405
+the exact same thing except
+
+190
+00:09:35,405 --> 00:09:38,480
+for the values that we want
+to be able to predict,
+
+191
+00:09:38,480 --> 00:09:42,605
+Again, that's going to be that label,
+
+192
+00:09:42,605 --> 00:09:45,065
+X and y is what we're coming in with,
+
+193
+00:09:45,065 --> 00:09:47,450
+The test size is where we're going to
+
+194
+00:09:47,450 --> 00:09:50,135
+indicate how we're going
+to split everything up,
+
+195
+00:09:50,135 --> 00:09:54,855
+Now the last item that's on
+there is the random_state,
+
+196
+00:09:54,855 --> 00:10:00,060
+Now, we're setting the
+random_state to a value here,
+
+197
+00:10:00,060 --> 00:10:02,510
+By doing that, we're now seeding
+
+198
+00:10:02,510 --> 00:10:05,195
+how random values are
+going to be generated,
+
+199
+00:10:05,195 --> 00:10:07,220
+So at the end of the day,
+
+200
+00:10:07,220 --> 00:10:09,725
+when you specify a random_state,
+
+201
+00:10:09,725 --> 00:10:13,535
+you're actually not going to be
+getting random values anymore
+
+202
+00:10:13,535 --> 00:10:17,810
+because it's always going to be
+basing it on that exact same seed,
+
+203
+00:10:17,810 --> 00:10:20,630
+The reason that you might
+decide to do this is if
+
+204
+00:10:20,630 --> 00:10:23,480
+you're looking for some
+level of replayability,
+
+205
+00:10:23,480 --> 00:10:25,865
+So that maybe what I
+want to be able to do
+
+206
+00:10:25,865 --> 00:10:29,015
+is to test out different
+algorithms or otherwise,
+
+207
+00:10:29,015 --> 00:10:31,100
+I want to make sure
+there were always doing
+
+208
+00:10:31,100 --> 00:10:33,380
+it on the exact same training data,
+
+209
+00:10:33,380 --> 00:10:35,870
+and on the exact same testing data,
+
+210
+00:10:35,870 --> 00:10:39,940
+So that's why you might decide
+to set that random state,
+
+211
+00:10:39,940 --> 00:10:42,590
+The end result of all of
+this is we're going to
+
+212
+00:10:42,590 --> 00:10:45,110
+start with a DataFrame that
+looks a little bit like this,
+
+213
+00:10:45,110 --> 00:10:50,590
+where what we want to be able
+to do is to predict our delay,
+
+214
+00:10:50,590 --> 00:10:53,405
+So we're going to split off
+
+215
+00:10:53,405 --> 00:10:57,590
+our distance and our elapsed
+time into the X side,
+
+216
+00:10:57,590 --> 00:11:03,365
+We're going to set up the y
+side as the predicted delay,
+
+217
+00:11:03,365 --> 00:11:05,000
+Then you'll also notice
+that we're going to
+
+218
+00:11:05,000 --> 00:11:06,500
+have our train section,
+
+219
+00:11:06,500 --> 00:11:09,910
+and we're going to
+have our test section,
+
+220
+00:11:09,910 --> 00:11:15,170
+We'll be able to use those to
+in turn train up our model,
+
+221
+00:11:15,170 --> 00:11:16,820
+Let's go in and see a couple of
+
+222
+00:11:16,820 --> 00:11:21,120
+code examples so we can hopefully
+bring all of this together,
+

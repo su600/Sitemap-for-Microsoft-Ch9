@@ -1,0 +1,346 @@
+1
+00:00:01,400 --> 00:00:04,155
+>> Before we get into this module,
+
+2
+00:00:04,155 --> 00:00:09,210
+I want to make sure that I'm
+setting expectations appropriately,
+
+3
+00:00:09,210 --> 00:00:14,595
+We are not going to get
+into selecting which model,
+
+4
+00:00:14,595 --> 00:00:18,060
+differences between the model, etc,
+
+5
+00:00:18,060 --> 00:00:20,040
+There's a lot to that,
+
+6
+00:00:20,040 --> 00:00:25,020
+We actually do have content
+that you can go check out,
+
+7
+00:00:25,020 --> 00:00:27,865
+that will give you more
+information about that,
+
+8
+00:00:27,865 --> 00:00:29,390
+I've mentioned to a handful of times
+
+9
+00:00:29,390 --> 00:00:31,640
+already, the GitHub repository,
+
+10
+00:00:31,640 --> 00:00:33,260
+Again, if you go there,
+
+11
+00:00:33,260 --> 00:00:35,150
+you're going to notice
+that we have links to
+
+12
+00:00:35,150 --> 00:00:37,190
+additional resources where you can
+
+13
+00:00:37,190 --> 00:00:41,390
+start to dig deeper into
+those types of conversations,
+
+14
+00:00:41,390 --> 00:00:43,640
+Like, hey, what's the
+difference between
+
+15
+00:00:43,640 --> 00:00:46,490
+logical regression and
+linear regression?
+
+16
+00:00:46,490 --> 00:00:50,375
+So you can go check all of that out,
+
+17
+00:00:50,375 --> 00:00:53,540
+The example that I want to walk
+
+18
+00:00:53,540 --> 00:00:56,645
+through here is going to
+use linear regression,
+
+19
+00:00:56,645 --> 00:01:00,110
+which is designed to predict
+
+20
+00:01:00,110 --> 00:01:02,720
+a value and potentially show
+
+21
+00:01:02,720 --> 00:01:05,630
+all of us that on a
+neat little chart,
+
+22
+00:01:05,630 --> 00:01:09,165
+That's what linear
+regression is all about,
+
+23
+00:01:09,165 --> 00:01:13,790
+Again, well, what you want to
+be able to do is to predict how
+
+24
+00:01:13,790 --> 00:01:18,750
+late or how early a particular
+flight is going to be,
+
+25
+00:01:18,750 --> 00:01:22,895
+That's exactly what linear
+regression can do for us,
+
+26
+00:01:22,895 --> 00:01:26,375
+Again, if you want a deeper
+conversation on all of that,
+
+27
+00:01:26,375 --> 00:01:29,000
+you can check out the links
+inside the repository
+
+28
+00:01:29,000 --> 00:01:33,785
+and learn more about all
+the possibilities there,
+
+29
+00:01:33,785 --> 00:01:38,300
+Let's go ahead and take a look at
+how we're going to take all of
+
+30
+00:01:38,300 --> 00:01:42,755
+our prepared data and start
+to feed that into a model,
+
+31
+00:01:42,755 --> 00:01:45,640
+So if you remember from before,
+this is what we've got,
+
+32
+00:01:45,640 --> 00:01:46,895
+We've got our training data,
+
+33
+00:01:46,895 --> 00:01:48,245
+We've got our testing data,
+
+34
+00:01:48,245 --> 00:01:49,370
+We've got our features,
+
+35
+00:01:49,370 --> 00:01:50,710
+We've got our labels,
+
+36
+00:01:50,710 --> 00:01:52,355
+We're ready to go,
+
+37
+00:01:52,355 --> 00:01:55,750
+We're all dressed up, now
+we just need a destination,
+
+38
+00:01:55,750 --> 00:01:57,395
+You need to have somewhere to go,
+
+39
+00:01:57,395 --> 00:01:59,825
+That somewhere that
+we're going to go,
+
+40
+00:01:59,825 --> 00:02:04,580
+is going to be into
+some form of a model,
+
+41
+00:02:04,580 --> 00:02:06,515
+into some form of an algorithm,
+
+42
+00:02:06,515 --> 00:02:08,630
+and in this particular case,
+
+43
+00:02:08,630 --> 00:02:11,765
+it's going to be linear regression,
+
+44
+00:02:11,765 --> 00:02:14,690
+So linear regression is going
+to give us that ability
+
+45
+00:02:14,690 --> 00:02:17,990
+to predict a value there,
+
+46
+00:02:17,990 --> 00:02:22,280
+that's going to be
+some form of a line,
+
+47
+00:02:22,280 --> 00:02:24,860
+thus the name linear regression,
+
+48
+00:02:24,860 --> 00:02:26,695
+See, it's not just a clever name,
+
+49
+00:02:26,695 --> 00:02:29,720
+Now there's a little fit function or
+
+50
+00:02:29,720 --> 00:02:31,790
+a little fit method
+that we're going to
+
+51
+00:02:31,790 --> 00:02:34,130
+use after we get a
+bit all of our data,
+
+52
+00:02:34,130 --> 00:02:36,920
+that's going to actually give
+
+53
+00:02:36,920 --> 00:02:39,770
+us the ability in turn
+to start to predict
+
+54
+00:02:39,770 --> 00:02:46,060
+values and give us outcomes for
+any new data that we fill into it,
+
+55
+00:02:46,060 --> 00:02:47,840
+As I mentioned at the outset,
+
+56
+00:02:47,840 --> 00:02:50,800
+there's a lot of different
+ways that we can do this,
+
+57
+00:02:50,800 --> 00:02:54,875
+There's a lot of different classes
+that are available to us and
+
+58
+00:02:54,875 --> 00:02:56,540
+we can use Scikit-learn and there's
+
+59
+00:02:56,540 --> 00:02:59,480
+other utilities out there that
+you might want to check out,
+
+60
+00:02:59,480 --> 00:03:03,490
+We're going to use Scikit-learn
+to perform this operation,
+
+61
+00:03:03,490 --> 00:03:08,210
+So it typically is going to
+follow the same pattern here,
+
+62
+00:03:08,210 --> 00:03:10,220
+where we're going to import
+
+63
+00:03:10,220 --> 00:03:12,550
+in the desired class that's
+going to do our work,
+
+64
+00:03:12,550 --> 00:03:15,260
+We're going to create
+an instance of that,
+
+65
+00:03:15,260 --> 00:03:18,620
+and then we're going
+to call fit to have
+
+66
+00:03:18,620 --> 00:03:22,420
+it start doing all of its work,
+
+67
+00:03:22,420 --> 00:03:25,455
+Now, that's what I'm
+about to demo here,
+
+68
+00:03:25,455 --> 00:03:27,260
+But as you might expect,
+
+69
+00:03:27,260 --> 00:03:29,090
+there's still more to it,
+
+70
+00:03:29,090 --> 00:03:32,540
+So when I go in and
+I run all of this,
+
+71
+00:03:32,540 --> 00:03:33,890
+the next question becomes,
+
+72
+00:03:33,890 --> 00:03:35,695
+well, how accurate is that?
+
+73
+00:03:35,695 --> 00:03:38,280
+That's what we're going
+to see in a later module,
+
+74
+00:03:38,280 --> 00:03:42,440
+For right now, what I want to
+focus in on is the mechanic,
+
+75
+00:03:42,440 --> 00:03:46,190
+How do we now take our data
+and fit that into a model?
+
+76
+00:03:46,190 --> 00:03:48,720
+That's going to be our core demo
+

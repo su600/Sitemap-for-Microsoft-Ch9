@@ -1,0 +1,102 @@
+1
+00:00:01,730 --> 00:00:04,350
+>> Well, if you made it this far,
+
+2
+00:00:04,350 --> 00:00:06,390
+then I guess the last
+thing that we have to
+
+3
+00:00:06,390 --> 00:00:08,685
+say at this point is thank you,
+
+4
+00:00:08,685 --> 00:00:11,700
+We also want to encourage you to get
+
+5
+00:00:11,700 --> 00:00:15,120
+in and really start playing
+with all the different tips,
+
+6
+00:00:15,120 --> 00:00:17,895
+tricks, and tools that
+we've demoed here,
+
+7
+00:00:17,895 --> 00:00:23,460
+>> You got some of those
+Python skills ready,
+
+8
+00:00:23,460 --> 00:00:26,130
+now is perfect time to go look
+for some data science tutorials,
+
+9
+00:00:26,130 --> 00:00:28,320
+check out some of the stuff
+on Microsoft Learn at
+
+10
+00:00:28,320 --> 00:00:30,570
+docs,Microsoft,com, some
+of the quick starts,
+
+11
+00:00:30,570 --> 00:00:32,310
+You can find some
+really great tutorials
+
+12
+00:00:32,310 --> 00:00:33,870
+to get started with machine learning,
+
+13
+00:00:33,870 --> 00:00:35,640
+training models, and it should be a
+
+14
+00:00:35,640 --> 00:00:37,770
+little easier now because you
+already know some of the code,
+
+15
+00:00:37,770 --> 00:00:39,600
+>> So if you're looking for
+
+16
+00:00:39,600 --> 00:00:42,225
+specific spots to go
+in and start looking,
+
+17
+00:00:42,225 --> 00:00:45,080
+check out the GitHub repository
+that we've linked to,
+
+18
+00:00:45,080 --> 00:00:49,145
+You're going to notice that
+we curated a handful of
+
+19
+00:00:49,145 --> 00:00:53,980
+nice next steps and how you can
+continue growing from there,
+
+20
+00:00:53,980 --> 00:00:55,635
+So now's the perfect time,
+
+21
+00:00:55,635 --> 00:00:57,615
+start writing some
+code, Thanks again,
+
+22
+00:00:57,615 --> 00:00:59,950
+>> Thanks again, See you next time,
+

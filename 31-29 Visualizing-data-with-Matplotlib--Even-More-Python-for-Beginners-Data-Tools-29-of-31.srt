@@ -1,0 +1,867 @@
+1
+00:00:01,370 --> 00:00:05,640
+>> Chances are, staring at
+a bunch of numbers isn't
+
+2
+00:00:05,640 --> 00:00:09,240
+necessarily going to give
+you a lot of insights,
+
+3
+00:00:09,240 --> 00:00:11,445
+Sometimes that's what you need
+
+4
+00:00:11,445 --> 00:00:14,550
+but a lot of times it's
+nice to have a picture,
+
+5
+00:00:14,550 --> 00:00:18,600
+The old saying, "A pictures
+worth a thousand words," I
+
+6
+00:00:18,600 --> 00:00:22,515
+guess it's worth some
+level of numbers as well,
+
+7
+00:00:22,515 --> 00:00:23,970
+and that's what we want to explore
+
+8
+00:00:23,970 --> 00:00:26,805
+here is how we can
+lay down some charts
+
+9
+00:00:26,805 --> 00:00:31,980
+and start to see what's
+going on with our data,
+
+10
+00:00:31,980 --> 00:00:34,440
+Now, one big thing
+that we're going to,
+
+11
+00:00:34,440 --> 00:00:36,375
+one be on the lookout form,
+
+12
+00:00:36,375 --> 00:00:40,320
+is some level of correlation
+in our data that
+
+13
+00:00:40,320 --> 00:00:42,620
+sometimes we're looking for
+
+14
+00:00:42,620 --> 00:00:44,960
+something that's relatively
+high level of just,
+
+15
+00:00:44,960 --> 00:00:48,110
+"Hey, real quick, does X impact Y?"
+
+16
+00:00:48,110 --> 00:00:52,655
+Sometimes it's because we
+want to remove items out
+
+17
+00:00:52,655 --> 00:00:55,100
+of our training data
+
+18
+00:00:55,100 --> 00:00:57,995
+because that could wind
+up skewing our results,
+
+19
+00:00:57,995 --> 00:01:00,500
+So for example, if we were
+
+20
+00:01:00,500 --> 00:01:02,960
+looking at something
+where we were trying to
+
+21
+00:01:02,960 --> 00:01:05,420
+predict something and we had
+
+22
+00:01:05,420 --> 00:01:07,670
+both maybe the amount that somebody
+
+23
+00:01:07,670 --> 00:01:11,060
+spent on a plane ticket
+and their fare class,
+
+24
+00:01:11,060 --> 00:01:14,315
+Well, chance are there's going
+to be pretty tightly correlated,
+
+25
+00:01:14,315 --> 00:01:18,350
+Because generally speaking,
+the more money that you spend,
+
+26
+00:01:18,350 --> 00:01:20,600
+the higher of a class
+
+27
+00:01:20,600 --> 00:01:22,985
+that you're going to wind
+up with on the plane,
+
+28
+00:01:22,985 --> 00:01:26,660
+So sometimes we need to remove
+that data or sometimes we just
+
+29
+00:01:26,660 --> 00:01:30,305
+want to go in and explore and
+see those types of things,
+
+30
+00:01:30,305 --> 00:01:32,670
+So that's what we're looking for it,
+
+31
+00:01:32,670 --> 00:01:37,580
+One way that we can do this is
+through the use of a Scatterplot,
+
+32
+00:01:37,580 --> 00:01:40,445
+The scatterplot is a
+really common chart type
+
+33
+00:01:40,445 --> 00:01:41,780
+where what's going to
+
+34
+00:01:41,780 --> 00:01:45,920
+happen is a dot is going to
+be drawn out on your chart,
+
+35
+00:01:45,920 --> 00:01:47,375
+that's me drawing dots,
+
+36
+00:01:47,375 --> 00:01:50,195
+A dot is going to be drawn everywhere
+
+37
+00:01:50,195 --> 00:01:54,885
+on that chart where X meets Y,
+
+38
+00:01:54,885 --> 00:01:58,685
+So now, I can see based on
+where all of those dots are,
+
+39
+00:01:58,685 --> 00:02:00,020
+what the values are,
+
+40
+00:02:00,020 --> 00:02:01,430
+what the scatter is,
+
+41
+00:02:01,430 --> 00:02:03,080
+what the full range is of
+
+42
+00:02:03,080 --> 00:02:06,770
+all the values that are
+going to be on there?
+
+43
+00:02:06,770 --> 00:02:11,210
+It's very useful for then checking
+correlation between columns,
+
+44
+00:02:11,210 --> 00:02:15,695
+So if you're going to notice
+that there is that correlation
+
+45
+00:02:15,695 --> 00:02:20,525
+where the value of one changes
+along with the value of another,
+
+46
+00:02:20,525 --> 00:02:25,175
+then we're going to see that
+inside of our scatterplot,
+
+47
+00:02:25,175 --> 00:02:28,355
+So if we break this down to a
+couple of a real-world examples,
+
+48
+00:02:28,355 --> 00:02:32,810
+you are going to notice that
+there's a correlation between,
+
+49
+00:02:32,810 --> 00:02:36,425
+say, car accidents on a
+particular day and snowfall,
+
+50
+00:02:36,425 --> 00:02:38,330
+But you're probably
+not going to notice
+
+51
+00:02:38,330 --> 00:02:40,325
+much of a correlation between
+
+52
+00:02:40,325 --> 00:02:45,550
+snowfall and the stock price
+of Microsoft on any given day,
+
+53
+00:02:45,550 --> 00:02:48,530
+We can stop here and have
+
+54
+00:02:48,530 --> 00:02:52,160
+a conversation about correlation
+and causation and so forth,
+
+55
+00:02:52,160 --> 00:02:54,240
+that's a little bit beyond
+what we're looking for,
+
+56
+00:02:54,240 --> 00:02:56,870
+What we're really looking
+forward today is just,
+
+57
+00:02:56,870 --> 00:02:59,800
+"Hey, is there correlation?"
+
+58
+00:02:59,800 --> 00:03:01,620
+So a couple of scatterplots,
+
+59
+00:03:01,620 --> 00:03:03,195
+you can see right there,
+
+60
+00:03:03,195 --> 00:03:06,860
+Correlation, you'll notice
+that real nice tight band
+
+61
+00:03:06,860 --> 00:03:09,560
+that's going from the lower
+left towards the upper right,
+
+62
+00:03:09,560 --> 00:03:11,090
+and then no correlation,
+
+63
+00:03:11,090 --> 00:03:14,545
+You'll notice that my values
+are just simply well,
+
+64
+00:03:14,545 --> 00:03:16,880
+scattered and so that's
+
+65
+00:03:16,880 --> 00:03:20,305
+a really nice indicator
+of what's going on there,
+
+66
+00:03:20,305 --> 00:03:25,815
+We can use Matplotlib
+to draw out our graphs,
+
+67
+00:03:25,815 --> 00:03:29,465
+So if we have a DataFrame,
+
+68
+00:03:29,465 --> 00:03:31,910
+we're going to be able to use
+that to draw everything out,
+
+69
+00:03:31,910 --> 00:03:33,400
+We are going to need the Library,
+
+70
+00:03:33,400 --> 00:03:35,980
+So we'll pull that in
+right there and then,
+
+71
+00:03:35,980 --> 00:03:41,120
+we'll be able to actually draw
+chart directly from our DataFrame,
+
+72
+00:03:41,120 --> 00:03:45,215
+So what I want you to notice
+about this code plot here,
+
+73
+00:03:45,215 --> 00:03:47,175
+is the fact that,
+
+74
+00:03:47,175 --> 00:03:51,710
+we are and I'll just go ahead
+and draw this out here,
+
+75
+00:03:51,710 --> 00:03:55,070
+So what we're going to do is we're
+going to load up our CSV file,
+
+76
+00:03:55,070 --> 00:03:57,020
+We've already seen how to do that,
+
+77
+00:03:57,020 --> 00:03:59,650
+So not really a whole
+lot going on there,
+
+78
+00:03:59,650 --> 00:04:03,650
+and now we're going to
+plot everything out,
+
+79
+00:04:03,650 --> 00:04:05,210
+So we're going to indicate, "Hey,
+
+80
+00:04:05,210 --> 00:04:07,165
+we want a scatterplot,
+
+81
+00:04:07,165 --> 00:04:08,960
+We're going to indicate what we want
+
+82
+00:04:08,960 --> 00:04:11,930
+the X and the Y values to be,"
+
+83
+00:04:11,930 --> 00:04:14,690
+So the X is going to be
+distance and then the Y
+
+84
+00:04:14,690 --> 00:04:17,830
+is going to be our arrival delay,
+
+85
+00:04:17,830 --> 00:04:19,850
+You'll notice the color,
+
+86
+00:04:19,850 --> 00:04:21,155
+you'll notice the title,
+
+87
+00:04:21,155 --> 00:04:23,060
+Both of those are
+pretty straightforward,
+
+88
+00:04:23,060 --> 00:04:26,540
+The one that I want to
+highlight here is the Alpha,
+
+89
+00:04:26,540 --> 00:04:28,970
+What the Alpha is going to do,
+
+90
+00:04:28,970 --> 00:04:32,720
+it's a zero to one base number,
+
+91
+00:04:32,720 --> 00:04:36,110
+Is it's going to indicate
+how lightly or how
+
+92
+00:04:36,110 --> 00:04:40,235
+heavily drawn each one of
+those dots is going to be,
+
+93
+00:04:40,235 --> 00:04:42,180
+By default the Alpha is one,
+
+94
+00:04:42,180 --> 00:04:45,060
+meaning that's going to be
+a just a completely dark
+
+95
+00:04:45,060 --> 00:04:48,180
+dot if we lighten that though,
+
+96
+00:04:48,180 --> 00:04:51,380
+Now what we're going to notice is
+that a single dot is going to be
+
+97
+00:04:51,380 --> 00:04:53,090
+a lighter color and if there's like
+
+98
+00:04:53,090 --> 00:04:54,920
+two dots that are top of one another,
+
+99
+00:04:54,920 --> 00:04:56,989
+or maybe they're just
+slightly offset,
+
+100
+00:04:56,989 --> 00:04:59,090
+then what we're going to notice is
+
+101
+00:04:59,090 --> 00:05:01,160
+that it'll get a little
+darker with two dots,
+
+102
+00:05:01,160 --> 00:05:03,745
+and then three dots, and then
+four dots, and then five dots,
+
+103
+00:05:03,745 --> 00:05:06,050
+So that way if I'm looking at data
+
+104
+00:05:06,050 --> 00:05:08,360
+where I've got a lot
+of points that are
+
+105
+00:05:08,360 --> 00:05:09,980
+going to be inside of
+
+106
+00:05:09,980 --> 00:05:13,040
+my chart and I'm trying
+to get a better sense of,
+
+107
+00:05:13,040 --> 00:05:16,520
+"Hey, where are things
+grouped together?"
+
+108
+00:05:16,520 --> 00:05:20,780
+I can do that by
+setting a lower Alpha,
+
+109
+00:05:20,780 --> 00:05:22,670
+So now, I'm going to see
+
+110
+00:05:22,670 --> 00:05:26,990
+darker colors where there's
+more overlap values,
+
+111
+00:05:26,990 --> 00:05:29,750
+Then we go ahead in call show,
+
+112
+00:05:29,750 --> 00:05:34,040
+and then what will happen is it
+will then display everything out,
+
+113
+00:05:34,040 --> 00:05:36,050
+What I want you to notice
+here, first of all,
+
+114
+00:05:36,050 --> 00:05:38,330
+is the fact that there's
+not a correlation
+
+115
+00:05:38,330 --> 00:05:40,985
+between distance and arrival delay,
+
+116
+00:05:40,985 --> 00:05:43,385
+which might have been a
+little bit surprising,
+
+117
+00:05:43,385 --> 00:05:46,340
+I figured there would have been
+some level of correlation,
+
+118
+00:05:46,340 --> 00:05:47,480
+but we can see that there's
+
+119
+00:05:47,480 --> 00:05:49,430
+just dots scattered
+all over the place,
+
+120
+00:05:49,430 --> 00:05:51,800
+so no real strong correlation there,
+
+121
+00:05:51,800 --> 00:05:53,585
+The other thing that
+you're going to notice,
+
+122
+00:05:53,585 --> 00:05:56,255
+is the fact that we've got just
+
+123
+00:05:56,255 --> 00:05:59,160
+a lot of values really
+down towards the bottom,
+
+124
+00:05:59,160 --> 00:06:02,945
+So there's just not a lot
+of delay for a lot of
+
+125
+00:06:02,945 --> 00:06:06,185
+our flights and those outliers
+
+126
+00:06:06,185 --> 00:06:09,425
+are then just that really
+faint color there,
+
+127
+00:06:09,425 --> 00:06:11,690
+So it's a really nice way to get
+
+128
+00:06:11,690 --> 00:06:15,520
+an overview of how our data looks,
+
+129
+00:06:15,520 --> 00:06:19,130
+Now we can also go in and
+
+130
+00:06:19,130 --> 00:06:22,790
+break things down across
+multiple lines as well,
+
+131
+00:06:22,790 --> 00:06:26,180
+So we don't necessarily have to
+go directly from the DataFrame,
+
+132
+00:06:26,180 --> 00:06:29,640
+Maybe we want to be able to break
+this down into multiple lines,
+
+133
+00:06:29,640 --> 00:06:32,090
+Maybe because we want to
+be able to reuse things,
+
+134
+00:06:32,090 --> 00:06:34,130
+maybe because we want to
+make it more readable,
+
+135
+00:06:34,130 --> 00:06:35,300
+Maybe because we just want
+
+136
+00:06:35,300 --> 00:06:37,580
+a little bit more power and
+we just want to be able to
+
+137
+00:06:37,580 --> 00:06:41,305
+control exactly how our chart
+is going to be laid out,
+
+138
+00:06:41,305 --> 00:06:45,060
+So this will actually do
+almost the exact same thing,
+
+139
+00:06:45,060 --> 00:06:49,250
+The only difference is the fact
+that we're going to be using
+
+140
+00:06:49,250 --> 00:06:51,530
+the Departure Delay and
+
+141
+00:06:51,530 --> 00:06:56,420
+the Arrival Delay to display
+everything out and so now,
+
+142
+00:06:56,420 --> 00:07:00,040
+we can see that nice
+tight correlation there,
+
+143
+00:07:00,040 --> 00:07:01,480
+We can already start to see, "Hey,
+
+144
+00:07:01,480 --> 00:07:04,775
+there's an obvious align
+that's forming there,"
+
+145
+00:07:04,775 --> 00:07:07,190
+Because we've got
+our departure delay,
+
+146
+00:07:07,190 --> 00:07:09,349
+our arrival delay, and obviously
+
+147
+00:07:09,349 --> 00:07:12,035
+makes sense that there's
+a tight correlation,
+
+148
+00:07:12,035 --> 00:07:15,815
+But we also have a little bit of,
+
+149
+00:07:15,815 --> 00:07:20,675
+I don't know, like a little
+something going on over here,
+
+150
+00:07:20,675 --> 00:07:24,065
+So it'd be nice to
+be able to just slap
+
+151
+00:07:24,065 --> 00:07:27,500
+down a line right across here,
+
+152
+00:07:27,500 --> 00:07:30,890
+So that way I can hopefully
+better visualize,
+
+153
+00:07:30,890 --> 00:07:35,195
+how all of those numbers
+are coming together?
+
+154
+00:07:35,195 --> 00:07:38,120
+So this is actually where we
+
+155
+00:07:38,120 --> 00:07:41,030
+could use a little bit
+of linear regression,
+
+156
+00:07:41,030 --> 00:07:44,045
+That linear regression,
+isn't necessarily
+
+157
+00:07:44,045 --> 00:07:47,240
+only used to try and be
+able to predict values,
+
+158
+00:07:47,240 --> 00:07:49,160
+Sometimes it can be really
+
+159
+00:07:49,160 --> 00:07:52,160
+helpful to be able to
+just have it draw a line,
+
+160
+00:07:52,160 --> 00:07:56,405
+The name linear there is
+not just a clever name,
+
+161
+00:07:56,405 --> 00:07:59,020
+It's all about being able
+to draw a lines there,
+
+162
+00:07:59,020 --> 00:08:02,000
+So let's take our data
+and let's feed that
+
+163
+00:08:02,000 --> 00:08:05,155
+then into a linear regression model,
+
+164
+00:08:05,155 --> 00:08:07,440
+and then when we get our value back,
+
+165
+00:08:07,440 --> 00:08:10,940
+now let's go ahead and
+snap down that red line,
+
+166
+00:08:10,940 --> 00:08:15,685
+So this is really that same
+data that we saw previously,
+
+167
+00:08:15,685 --> 00:08:18,260
+The only difference is now we run
+
+168
+00:08:18,260 --> 00:08:20,825
+it through a little bit
+of linear regression,
+
+169
+00:08:20,825 --> 00:08:24,770
+So the y-value, that y predicted,
+
+170
+00:08:24,770 --> 00:08:27,980
+is going to be the prediction of
+
+171
+00:08:27,980 --> 00:08:30,140
+the arrival delay and
+
+172
+00:08:30,140 --> 00:08:33,250
+that's what's going to give
+us that nice red line,
+
+173
+00:08:33,250 --> 00:08:37,190
+Then we can use that
+model to then overlay
+
+174
+00:08:37,190 --> 00:08:41,240
+that on top of our data and see
+that nice neat little line,
+
+175
+00:08:41,240 --> 00:08:44,600
+So there one more time
+is a little bit of code,
+
+176
+00:08:44,600 --> 00:08:46,520
+You're going to notice
+that we're going
+
+177
+00:08:46,520 --> 00:08:48,830
+to draw everything out with
+
+178
+00:08:48,830 --> 00:08:51,150
+that nice red color and
+then we're going to
+
+179
+00:08:51,150 --> 00:08:54,005
+create this scatterplot down below,
+
+180
+00:08:54,005 --> 00:08:56,870
+where we've got everything
+laid out in blue,
+
+181
+00:08:56,870 --> 00:08:59,720
+So the end result is
+going to wind up being
+
+182
+00:08:59,720 --> 00:09:02,990
+a nice neat little chart
+here where we've got
+
+183
+00:09:02,990 --> 00:09:05,750
+all of those row values and then
+
+184
+00:09:05,750 --> 00:09:09,655
+the linear regression model
+laid right on top of that,
+
+185
+00:09:09,655 --> 00:09:14,090
+Now we can see can a nice
+and clearly how it is
+
+186
+00:09:14,090 --> 00:09:19,495
+that our departure delay is
+impacting our arrival delay?
+
+187
+00:09:19,495 --> 00:09:22,070
+Let's turn our attention to the code
+
+188
+00:09:22,070 --> 00:09:25,560
+so that way we can see
+all of this in action,
+

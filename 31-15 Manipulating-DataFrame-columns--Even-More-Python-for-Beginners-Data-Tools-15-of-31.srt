@@ -1,0 +1,432 @@
+1
+00:00:01,520 --> 00:00:04,800
+>> As you explore different
+data science tutorials
+
+2
+00:00:04,800 --> 00:00:06,555
+and watch different
+data science videos,
+
+3
+00:00:06,555 --> 00:00:08,160
+one of the things they're
+always talking about is
+
+4
+00:00:08,160 --> 00:00:10,950
+preparing your data and the time
+you spend preparing your data,
+
+5
+00:00:10,950 --> 00:00:12,930
+One of the things you'll
+end up doing as you
+
+6
+00:00:12,930 --> 00:00:15,120
+prepare your data is you're
+going to have to either
+
+7
+00:00:15,120 --> 00:00:18,135
+remove columns from a
+DataFrame or you might need to
+
+8
+00:00:18,135 --> 00:00:19,680
+take some of the columns inside
+
+9
+00:00:19,680 --> 00:00:21,840
+a DataFrame and move them
+into a separate one,
+
+10
+00:00:21,840 --> 00:00:23,580
+so splitting them off, if you will,
+
+11
+00:00:23,580 --> 00:00:27,690
+So let's explore how you do that
+with the Python code as well,
+
+12
+00:00:28,150 --> 00:00:31,220
+So in this case, maybe I have
+
+13
+00:00:31,220 --> 00:00:33,620
+something like the actual
+arrival time column,
+
+14
+00:00:33,620 --> 00:00:36,050
+If I was doing some data
+science and I was trying to
+
+15
+00:00:36,050 --> 00:00:38,705
+predict how many minutes late
+a flight was going to be,
+
+16
+00:00:38,705 --> 00:00:40,865
+that's a value inside
+the arrival delay,
+
+17
+00:00:40,865 --> 00:00:43,340
+Well, if I had the
+actual arrival time
+
+18
+00:00:43,340 --> 00:00:44,900
+and the scheduled arrival time,
+
+19
+00:00:44,900 --> 00:00:46,370
+well, I can just calculate
+
+20
+00:00:46,370 --> 00:00:48,710
+arrivals delay by subtracting
+one from the other,
+
+21
+00:00:48,710 --> 00:00:50,090
+But I'm trying to train
+
+22
+00:00:50,090 --> 00:00:52,010
+a model to look at all
+the other factors like,
+
+23
+00:00:52,010 --> 00:00:53,750
+what airport did it leave from?
+
+24
+00:00:53,750 --> 00:00:55,190
+What time did it leave in?
+
+25
+00:00:55,190 --> 00:00:56,285
+How long was the flight?
+
+26
+00:00:56,285 --> 00:00:59,660
+Use those values to try and predict
+if the flight arrived on time,
+
+27
+00:00:59,660 --> 00:01:01,340
+So I don't just want to say take
+
+28
+00:01:01,340 --> 00:01:04,250
+the actual arrival time and subtract
+the scheduled arrival time,
+
+29
+00:01:04,250 --> 00:01:07,790
+I'm not really training a model
+that's just doing a subtraction,
+
+30
+00:01:07,790 --> 00:01:09,545
+So in this case, I might need to
+
+31
+00:01:09,545 --> 00:01:11,810
+remove the actual
+arrival time column,
+
+32
+00:01:11,810 --> 00:01:14,230
+So how do I do that with Python code?
+
+33
+00:01:14,230 --> 00:01:17,390
+Well, there it is, I'm sure
+you're discovering by now,
+
+34
+00:01:17,390 --> 00:01:19,385
+pandas has some fantastic features,
+
+35
+00:01:19,385 --> 00:01:22,300
+and the DataFrame object
+has a drop method,
+
+36
+00:01:22,300 --> 00:01:24,770
+So you can simply say
+drop a particular column,
+
+37
+00:01:24,770 --> 00:01:26,090
+So if I say, "Hey,
+
+38
+00:01:26,090 --> 00:01:28,145
+on my delays DataFrame,
+
+39
+00:01:28,145 --> 00:01:31,550
+let's drop the column called
+actual arrival time,"
+
+40
+00:01:31,550 --> 00:01:35,855
+But this doesn't actually
+modify the delays DataFrame,
+
+41
+00:01:35,855 --> 00:01:38,330
+It simply returns a
+new DataFrame which
+
+42
+00:01:38,330 --> 00:01:41,000
+contains everything except
+the actual arrival time,
+
+43
+00:01:41,000 --> 00:01:42,890
+So I get a new DataFrame
+
+44
+00:01:42,890 --> 00:01:45,830
+containing everything
+except actual arrival time,
+
+45
+00:01:45,830 --> 00:01:48,680
+If however you want to make
+
+46
+00:01:48,680 --> 00:01:52,175
+the change to the delays
+DataFrame itself,
+
+47
+00:01:52,175 --> 00:01:55,450
+you can actually specify
+in-place equals true,
+
+48
+00:01:55,450 --> 00:01:57,275
+and that's a way of saying modify
+
+49
+00:01:57,275 --> 00:01:59,390
+the DataFrame when
+I'm doing the drops,
+
+50
+00:01:59,390 --> 00:02:01,850
+So that way you don't have to copy
+the values to a new DataFrame,
+
+51
+00:02:01,850 --> 00:02:04,175
+I'm just saying, no, modified
+this one right here,
+
+52
+00:02:04,175 --> 00:02:05,945
+and that will simply drop
+
+53
+00:02:05,945 --> 00:02:09,100
+the actual arrival time
+column from delays DataFrame,
+
+54
+00:02:09,100 --> 00:02:12,470
+Now, the other thing you might
+need to sometimes is you
+
+55
+00:02:12,470 --> 00:02:14,000
+might need to take
+some of the columns
+
+56
+00:02:14,000 --> 00:02:16,025
+from a DataFrame and move them aside,
+
+57
+00:02:16,025 --> 00:02:17,810
+One of the most common
+things you'll hear
+
+58
+00:02:17,810 --> 00:02:19,670
+people talk about in
+Data Science courses
+
+59
+00:02:19,670 --> 00:02:23,275
+is the idea of qualitative
+data and quantitative data,
+
+60
+00:02:23,275 --> 00:02:27,335
+So qualitative data
+is descriptive data,
+
+61
+00:02:27,335 --> 00:02:29,450
+things like, what Airport is it?
+
+62
+00:02:29,450 --> 00:02:33,050
+Are things blue or green or
+gold, they're describing things,
+
+63
+00:02:33,050 --> 00:02:35,620
+But quantitative data
+tends to be numbers,
+
+64
+00:02:35,620 --> 00:02:36,820
+How big is something?
+
+65
+00:02:36,820 --> 00:02:37,870
+How long is something?
+
+66
+00:02:37,870 --> 00:02:40,565
+How many minutes the
+delay was, and so on,
+
+67
+00:02:40,565 --> 00:02:43,355
+You'll discover as you
+explore data science
+
+68
+00:02:43,355 --> 00:02:46,159
+that those quantitative values,
+
+69
+00:02:46,159 --> 00:02:48,650
+training models, they
+love that type of data,
+
+70
+00:02:48,650 --> 00:02:49,970
+So quite often, we have to take
+
+71
+00:02:49,970 --> 00:02:51,905
+those quantitative values and
+
+72
+00:02:51,905 --> 00:02:54,190
+pull them aside to use
+them to train our model,
+
+73
+00:02:54,190 --> 00:02:58,235
+So in this case, that's my origin
+airport, my destination airport,
+
+74
+00:02:58,235 --> 00:03:00,320
+So I can simply create a slice of
+
+75
+00:03:00,320 --> 00:03:03,440
+that DataFrame and kick
+back to that module,
+
+76
+00:03:03,440 --> 00:03:04,760
+Christopher showed you
+what we talked about
+
+77
+00:03:04,760 --> 00:03:06,500
+how to query a DataFrame,
+
+78
+00:03:06,500 --> 00:03:08,630
+So basically, I'm going to query
+
+79
+00:03:08,630 --> 00:03:11,710
+the DataFrame to return
+just those two columns,
+
+80
+00:03:11,710 --> 00:03:14,435
+and then take those two columns
+and put them in a new value,
+
+81
+00:03:14,435 --> 00:03:16,520
+So all you do is you do a query,
+
+82
+00:03:16,520 --> 00:03:18,365
+I'm using loc here,
+
+83
+00:03:18,365 --> 00:03:20,765
+Remember, that first column means,
+
+84
+00:03:20,765 --> 00:03:22,145
+which rows do I want back,
+
+85
+00:03:22,145 --> 00:03:24,320
+and a single column
+means return all rows,
+
+86
+00:03:24,320 --> 00:03:26,410
+and then you specify
+which columns you want,
+
+87
+00:03:26,410 --> 00:03:29,160
+In this case, origin airport
+and destination airport,
+
+88
+00:03:29,160 --> 00:03:32,830
+and take those values and put
+them into description DataFrame,
+
+89
+00:03:32,830 --> 00:03:35,030
+and that will create
+this nice new DataFrame
+
+90
+00:03:35,030 --> 00:03:37,265
+for me with just the
+columns that I need,
+
+91
+00:03:37,265 --> 00:03:39,710
+So these techniques are
+going to make it easier for
+
+92
+00:03:39,710 --> 00:03:42,110
+you when you start having to
+prepare your data for data science,
+
+93
+00:03:42,110 --> 00:03:45,420
+Now, let's take a try
+doing it in code,
+
