@@ -5,6 +5,10 @@
     格式化下载列表 分组
     生成下载链接文件
 '''
+# todo 添加任务分支 比如单独下载视频 或字幕
+# todo 自动生成文件夹
+# todo 显示下载进度 速度
+
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -128,7 +132,8 @@ print('正在下载字幕文件')
 '''
 # todo 更换目录 新建目录
 
-urls = subtitle_list1  # 英文字幕
+# urls = subtitle_list1  # 英文字幕
+urls = subtitle_list2  # 中文字幕
 for i in urls:
     name = str(i).split('/ca')[0].split('/')[-1]+'.srt'
     ## 直接修改扩展名为srt
@@ -153,7 +158,7 @@ for i in urls:
         fileContent = fin.readlines()
         lineNum = 2
         fileMaxLineNum = len(fileContent)
-        with open(name, "w", encoding="gbk") as fout:
+        with open(name, "w", encoding="utf-8") as fout:
             fout.write("1\n")
             for i in range(2, fileMaxLineNum):
                 fout.write(fileContent[i].replace(".", ","))
